@@ -1,0 +1,5 @@
+<mapper namespace="com.example.demo.mapper.TestMapper">
+    <select id="getAllUser" resultType="com.example.demo.model.TestData">
+        SELECT id, name FROM test;
+    </select>
+</mapper>
