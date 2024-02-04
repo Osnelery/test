@@ -16,7 +16,11 @@ public class TestController {
     @Autowired
     private TestService testService;
     @GetMapping("/data")
+    /*
+        獲取所有數據
+    */
     public List<TestData> getAllUser(){
+
         return testService.getAllUser();
     }
 }

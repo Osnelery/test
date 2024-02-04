@@ -1,5 +1,5 @@
 <mapper namespace="com.example.demo.mapper.TestMapper">
     <select id="getAllUser" resultType="com.example.demo.model.TestData">
-        SELECT id, name FROM test;
+        SELECT id, name FROM user;
     </select>
 </mapper>

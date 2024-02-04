@@ -1,11 +1,17 @@
 server:
-    port: 8081
+    port: 8080
     servlet:
-        context-path:
+        context-path: /
+    error:
+        include-stacktrace: always
+        include-message: always
 
 spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        password: wqwq
         url: jdbc:mysql://localhost:3306/test
         username: root
+        password: wqwq
+
+mybatis:
+    mapper-locations: classpath:resources/mapper/*.xml
