@@ -1,11 +1,16 @@
+<mat-toolbar>
+  <button type="button" class="btn" (click)="drawer.toggle()">
+    <i class="bi bi-list"></i>
+  </button>
+  <span>想不到標題</span>
+</mat-toolbar>
+
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>test1</p>
-    <p>test2</p>
-    <p>test3</p>
+    <div style="height: 300px">
+      <button type="button" class="btn menuButton">驅動懶人包</button>
+      <button type="button" class="btn menuButton">更新說明</button>
+    </div>
   </mat-drawer>
-
-  <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="drawer.toggle()">測試</button>
-  </div>
+  <app-view01></app-view01>
 </mat-drawer-container>
