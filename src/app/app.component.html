@@ -1,1 +1,11 @@
-<h1>測試</h1>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>test1</p>
+    <p>test2</p>
+    <p>test3</p>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">測試</button>
+  </div>
+</mat-drawer-container>
