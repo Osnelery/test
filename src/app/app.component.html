@@ -6,14 +6,19 @@
   >
     <mat-icon (click)="drawer.toggle()">menu</mat-icon>
   </button>
-  <span>想不到標題</span>
+  <span> 想不到標題</span>
 </mat-toolbar>
 
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>test1</p>
-    <p>test2</p>
-    <p>test3</p>
+    <button
+      type="button"
+      class="btn"
+      *ngFor="let routerPath of routerPath"
+      (click)="navigateTo(routerPath.path)"
+    >
+      {{ routerPath.title }}
+    </button>
   </mat-drawer>
-  <app-view01></app-view01>
+  <router-outlet></router-outlet>
 </mat-drawer-container>
