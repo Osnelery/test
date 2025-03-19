@@ -1,1 +1,10 @@
-<p>mouse-driver-view works!</p>
+<section class="row mt-2 mr-2">
+  <div class="dataShow" *ngFor="let data of data">
+    <button type="button" class="btn">
+      <img class="img" [src]="data.src" />
+      <div>
+        <label>{{ data.title }}</label>
+      </div>
+    </button>
+  </div>
+</section>
