@@ -1,10 +1,17 @@
-<section class="row mt-2 mr-2">
-  <div class="dataShow" *ngFor="let data of data">
-    <button type="button" class="btn">
-      <img class="img" [src]="data.src" />
-      <div>
-        <label>{{ data.title }}</label>
+<div class="row ms-4 d-flex justify-content-start">
+  <div class="dataShow mt-3" *ngFor="let data of data">
+    <button
+      type="button"
+      class="btn dataShow d-flex flex-column btn-outline-secondary"
+    >
+      <div
+        class="imgDiv flex-grow-1 d-flex align-items-center justify-content-center"
+      >
+        <img class="img" [src]="data.src" />
+      </div>
+      <div class="d-flex align-items-end">
+        <label class="imgTitle text-center w-100">{{ data.title }}</label>
       </div>
     </button>
   </div>
-</section>
+</div>

@@ -1,11 +1,16 @@
 .section {
-  max-width: 900px;
+  overflow-y: auto;
 }
 .dataShow {
-  max-width: 300px;
-  text-align: center;
+  height: 200px;
+  max-width: 350px;
+  // text-align: center;
 }
 
 .img {
   max-width: 300px;
+}
+
+.imgTitle {
+  color: black;
 }
