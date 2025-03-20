@@ -1,16 +1,19 @@
-<div class="row ms-4 d-flex justify-content-start">
-  <div class="dataShow mt-3" *ngFor="let data of data">
+<div class="row me-2 d-flex justify-content-evenly">
+  <div class="dataShow mt-4" *ngFor="let driverBagData of driverBagData">
     <button
       type="button"
-      class="btn dataShow d-flex flex-column btn-outline-secondary"
+      class="btn dataShow d-flex flex-column btn-outline-secondary col"
     >
       <div
         class="imgDiv flex-grow-1 d-flex align-items-center justify-content-center"
       >
-        <img class="img" [src]="data.src" />
+        <img class="img" [src]="driverBagData.img"/>
       </div>
       <div class="d-flex align-items-end">
-        <label class="imgTitle text-center w-100">{{ data.title }}</label>
+        <label class="imgTitle text-center w-100" style="font-size: 18px"
+          >{{ driverBagData.englishName }}
+          {{ driverBagData.chineseName }}</label
+        >
       </div>
     </button>
   </div>
