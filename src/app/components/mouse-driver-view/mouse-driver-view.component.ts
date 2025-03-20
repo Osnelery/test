@@ -1,6 +1,8 @@
+import { MatDialog } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { data } from './model/data';
+import { DriverViewDialogComponent } from './component/driver-view-dialog/driver-view-dialog.component';
 
 @Component({
   selector: 'app-mouse-driver-view',
@@ -9,7 +11,13 @@ import { data } from './model/data';
   styleUrl: './mouse-driver-view.component.scss',
 })
 export class MouseDriverViewComponent {
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
-  driverBagData = data
+  driverBagData = data;
+
+  openDialog() {
+    this.dialog.open(DriverViewDialogComponent, {
+      width: 'md',
+    });
+  }
 }
