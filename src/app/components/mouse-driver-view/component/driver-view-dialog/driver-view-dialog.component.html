@@ -1,1 +1,46 @@
-<label>彈窗測試</label>
+<div class="container">
+  <div class="row gy-2 p-2">
+    <button
+      type="button"
+      class="btn dataShow btn-outline-secondary col-6 ms-3"
+      (click)="getWindowsDriver()"
+    >
+      前往桌面驅動
+    </button>
+    <mat-accordion class="col-10 ms-1">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>支援型號</mat-panel-title>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+    </mat-accordion>
+  
+
+    <span
+      *ngFor="
+        let downloadMouseText of brandData?.downloadMouseList;
+        let isLast = last
+      "
+    >
+      {{ downloadMouseText }}
+    </span>
+
+    <button
+      type="button"
+      class="btn dataShow btn-outline-secondary col-6 ms-3"
+      (click)="getWebDriver()"
+    >
+      前往網頁驅動
+    </button>
+
+    <mat-accordion class="col-10 ms-1">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>支援型號</mat-panel-title>
+          <mat-panel-description> </mat-panel-description>
+        </mat-expansion-panel-header>
+        <label>test</label>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

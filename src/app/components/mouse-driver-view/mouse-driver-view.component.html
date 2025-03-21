@@ -1,9 +1,12 @@
 <div class="row me-2 d-flex justify-content-evenly">
-  <div class="dataShow mt-4" *ngFor="let driverBagData of driverBagData | sortByNamePipe:'englishName'">
+  <div
+    class="dataShow mt-4"
+    *ngFor="let driverBagData of driverBagData | sortByNamePipe : 'englishName'"
+  >
     <button
       type="button"
-      class="btn dataShow d-flex flex-column btn-outline-secondary col"
-      (click)="openDialog()"
+      class="btn dataShow d-flex flex-column btn-outline-secondary"
+      (click)="openDialog(driverBagData)"
     >
       <div
         class="imgDiv flex-grow-1 d-flex align-items-center justify-content-center"

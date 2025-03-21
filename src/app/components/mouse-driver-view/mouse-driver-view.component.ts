@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { data } from './model/data';
 import { DriverViewDialogComponent } from './component/driver-view-dialog/driver-view-dialog.component';
-import { SortByNamePipePipe } from "../../pipes/sort-by-name-pipe.pipe";
+import { SortByNamePipePipe } from '../../pipes/sort-by-name-pipe.pipe';
+import { mouseDriverViewRes } from '../../types/mouseDriverView/res/mouseDriverViewRes';
 
 @Component({
   selector: 'app-mouse-driver-view',
@@ -14,11 +15,12 @@ import { SortByNamePipePipe } from "../../pipes/sort-by-name-pipe.pipe";
 export class MouseDriverViewComponent {
   constructor(private dialog: MatDialog) {}
 
-  driverBagData = data;
+  driverBagData:mouseDriverViewRes[] = data;
 
-  openDialog() {
-    this.dialog.open(DriverViewDialogComponent, {
+  openDialog(data:mouseDriverViewRes) {
+    const dialog = this.dialog.open(DriverViewDialogComponent, {
       width: 'md',
     });
+    dialog.componentInstance.brandData = data
   }
 }
