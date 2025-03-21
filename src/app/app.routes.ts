@@ -16,7 +16,7 @@ export const routes: Routes = [
     component: MouseDriverViewComponent,
   },
   {
-    title: '更新說明',
+    title: '更新日誌',
     path: 'updateLog',
     component: UpdateLogViewComponent,
   },

@@ -1,0 +1,28 @@
+.mouseText {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.backGround {
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+mat-expansion-panel span {
+  display: block;
+}
+
+.btn {
+  font-size: 18px;
+}
+
+mat-expansion-panel-header,
+mat-expansion-panel-header.mat-expanded:focus {
+  background: #cabbe9;
+  font-size: 18px;
+}
+
+mat-expansion-panel-header.mat-expanded:focus {
+  background: #cabbe9;
+  height: 35px;
+}

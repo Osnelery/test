@@ -1,45 +1,55 @@
 <div class="container">
-  <div class="row gy-2 p-2">
+  <div class="row gy-2 p-2 backGround">
+    <h1 class="h1Title">
+      {{ brandData?.englishName }}{{ brandData?.chineseName }}
+    </h1>
+
     <button
       type="button"
-      class="btn dataShow btn-outline-secondary col-6 ms-3"
+      class="btn btn-lg dataShow col-6 ms-3 btn-outline-primary"
       (click)="getWindowsDriver()"
     >
       前往桌面驅動
     </button>
-    <mat-accordion class="col-10 ms-1">
+    <mat-accordion class="col-10" class="mouseText mb-3 mt-3">
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <mat-panel-title>支援型號</mat-panel-title>
+          <mat-panel-title class="title">支援型號</mat-panel-title>
         </mat-expansion-panel-header>
+        <span
+          class="mt-2"
+          *ngFor="let downloadMouseText of brandData?.downloadMouseList"
+        >
+          {{ downloadMouseText }}
+        </span>
       </mat-expansion-panel>
     </mat-accordion>
-  
 
-    <span
-      *ngFor="
-        let downloadMouseText of brandData?.downloadMouseList;
-        let isLast = last
-      "
-    >
-      {{ downloadMouseText }}
-    </span>
+    <hr />
 
     <button
       type="button"
-      class="btn dataShow btn-outline-secondary col-6 ms-3"
+      class="btn btn-lg dataShow col-6 ms-3 btn-outline-primary"
       (click)="getWebDriver()"
     >
       前往網頁驅動
     </button>
 
-    <mat-accordion class="col-10 ms-1">
+    <mat-accordion class="col-10" class="mouseText mb-3 mt-3">
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <mat-panel-title>支援型號</mat-panel-title>
+          <mat-panel-title class="title">支援型號</mat-panel-title>
           <mat-panel-description> </mat-panel-description>
         </mat-expansion-panel-header>
-        <label>test</label>
+        <span
+          class="mt-2"
+          *ngFor="
+            let webMouseText of brandData?.webMouseList;
+            let isLast = last
+          "
+        >
+          {{ webMouseText }}
+        </span>
       </mat-expansion-panel>
     </mat-accordion>
   </div>
