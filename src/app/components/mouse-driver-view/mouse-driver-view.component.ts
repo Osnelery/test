@@ -15,12 +15,12 @@ import { mouseDriverViewRes } from '../../types/mouseDriverView/res/mouseDriverV
 export class MouseDriverViewComponent {
   constructor(private dialog: MatDialog) {}
 
-  driverBagData:mouseDriverViewRes[] = data;
+  driverBagData: mouseDriverViewRes[] = data;
 
-  openDialog(data:mouseDriverViewRes) {
+  openDialog(data: mouseDriverViewRes) {
     const dialog = this.dialog.open(DriverViewDialogComponent, {
       width: 'md',
     });
-    dialog.componentInstance.brandData = data
+    dialog.componentInstance.brandData = data;
   }
 }
