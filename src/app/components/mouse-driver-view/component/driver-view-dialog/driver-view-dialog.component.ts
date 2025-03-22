@@ -3,10 +3,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { data } from '../../model/data';
 import { mouseDriverViewRes } from '../../../../types/mouseDriverView/res/mouseDriverViewRes';
 import { CommonModule } from '@angular/common';
+import { OrderByNamePipe } from "../../../../pipes/order-by-name.pipe";
 
 @Component({
   selector: 'app-driver-view-dialog',
-  imports: [MatExpansionModule, CommonModule],
+  imports: [MatExpansionModule, CommonModule, OrderByNamePipe],
   templateUrl: './driver-view-dialog.component.html',
   styleUrl: './driver-view-dialog.component.scss',
 })

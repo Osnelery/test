@@ -18,7 +18,7 @@
         </mat-expansion-panel-header>
         <span
           class="mt-2"
-          *ngFor="let downloadMouseText of brandData?.downloadMouseList"
+          *ngFor="let downloadMouseText of brandData?.downloadMouseList | orderByName"
         >
           {{ downloadMouseText }}
         </span>

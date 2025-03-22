@@ -74,7 +74,7 @@ export const data: updateLog[] = [
   {
     date: '2025/03/23',
     title: '新增',
-    text: 'HackMD上所有品牌遷移完成',
+    text: 'HackMD上所有品牌遷移完成 共45個',
   },
   {
     date: '2025/03/23',

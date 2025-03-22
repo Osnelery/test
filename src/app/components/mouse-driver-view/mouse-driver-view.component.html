@@ -1,3 +1,15 @@
+<div class="d-flex justify-content-center align-items-center mt-2">
+  <mat-form-field class="example-form-field custom-bg col-10">
+    <mat-label>品牌名稱</mat-label>
+    <input
+      matInput
+      type="text"
+      [(ngModel)]="inputValue"
+      (input)="filterContent()"
+    />
+  </mat-form-field>
+</div>
+
 <div class="row me-2 d-flex justify-content-evenly">
   <div
     class="dataShow mt-4"
