@@ -27,10 +27,10 @@ export class AppComponent {
   routerPath: any = [];
 
   ngOnInit() {
-    this.routerPath = this.routers.filter(
-      (routerPath) => routerPath.path !== ''
-    );
-    console.log( this.routerPath);
+    // this.routerPath = this.routers.filter(
+    //   (routerPath) => routerPath.path !== ''
+    // );
+    // console.log( this.routerPath);
   }
 
   navigateTo(path: string | undefined) {

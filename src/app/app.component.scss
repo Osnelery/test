@@ -1,6 +1,7 @@
 .example-container {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 64px);
+  overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
@@ -24,4 +25,9 @@
 
 .mat-drawer {
   background: #cabbe9;
+}
+
+.main-content {
+  height: 100%;
+  overflow: auto;
 }

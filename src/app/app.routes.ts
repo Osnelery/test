@@ -1,12 +1,11 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { UpdateLogViewComponent } from './components/update-log-view/update-log-view.component';
 import { MouseDriverViewComponent } from './components/mouse-driver-view/mouse-driver-view.component';
 import { SpaceViewComponent } from './components/space-view/space-view.component';
 
 export const routes: Routes = [
   {
-    title: '首頁',
+    title: '最新消息',
     path: '',
     component: SpaceViewComponent,
   },

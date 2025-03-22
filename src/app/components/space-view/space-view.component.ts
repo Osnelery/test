@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-space-view',
   imports: [],
   templateUrl: './space-view.component.html',
-  styleUrl: './space-view.component.scss'
+  styleUrl: './space-view.component.scss',
 })
 export class SpaceViewComponent {
-
+  dicordClick() {}
 }

@@ -13,11 +13,14 @@
     <button
       type="button"
       class="btn mt-2"
-      *ngFor="let routerPath of routerPath"
+      *ngFor="let routerPath of routers"
       (click)="navigateTo(routerPath.path)"
     >
       {{ routerPath.title }}
     </button>
   </mat-drawer>
-  <router-outlet></router-outlet>
+
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
 </mat-drawer-container>
