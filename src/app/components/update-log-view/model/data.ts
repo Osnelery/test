@@ -71,4 +71,14 @@ export const data: updateLog[] = [
     title: '修改',
     text: '主題配色修改',
   },
+  {
+    date: '2025/03/23',
+    title: '新增',
+    text: 'HackMD上所有品牌遷移完成',
+  },
+  {
+    date: '2025/03/23',
+    title: '新增',
+    text: '新增最新消息頁面切版',
+  },
 ];
