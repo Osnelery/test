@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { data } from '../../model/data';
+import { data } from '../../../../common/data';
 import { mouseDriverViewRes } from '../../../../types/mouseDriverView/res/mouseDriverViewRes';
 import { CommonModule } from '@angular/common';
-import { OrderByNamePipe } from "../../../../pipes/order-by-name.pipe";
+import { OrderByNamePipe } from '../../../../pipes/order-by-name.pipe';
 
 @Component({
   selector: 'app-driver-view-dialog',

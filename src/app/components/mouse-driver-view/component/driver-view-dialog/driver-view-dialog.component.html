@@ -1,12 +1,10 @@
 <div class="container">
   <div class="row gy-2 p-2 backGround">
-    <h1 class="h1Title">
-      {{ brandData?.englishName }}{{ brandData?.chineseName }}
-    </h1>
+    <img [src]="brandData?.img" />
 
     <button
       type="button"
-      class="btn btn-lg dataShow col-6 ms-3 btn-outline-primary"
+      class="btn btn-lg dataShow col-6 ms-3 btn-outline-primary mt-4"
       (click)="getWindowsDriver()"
       [disabled]="!brandData?.downloadDriverUrl"
     >

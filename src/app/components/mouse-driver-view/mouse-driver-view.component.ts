@@ -1,7 +1,7 @@
 import { MatDialog } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { data } from './model/data';
+import { data } from '../../common/data';
 import { DriverViewDialogComponent } from './component/driver-view-dialog/driver-view-dialog.component';
 import { SortByNamePipePipe } from '../../pipes/sort-by-name-pipe.pipe';
 import { mouseDriverViewRes } from '../../types/mouseDriverView/res/mouseDriverViewRes';
