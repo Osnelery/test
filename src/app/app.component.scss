@@ -10,6 +10,7 @@
   height: 100%;
   overflow: auto;
   width: 200px;
+  border-radius: 0px;
 }
 
 .btn {
@@ -27,7 +28,7 @@
   background: #cabbe9;
 }
 
-.main-content {
+.router-outlet {
   height: 100%;
   overflow: auto;
 }

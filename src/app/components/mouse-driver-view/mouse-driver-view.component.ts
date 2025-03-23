@@ -44,8 +44,8 @@ export class MouseDriverViewComponent {
         (data) =>
           data.englishName
             .toLowerCase()
-            .includes(this.inputValue.toLowerCase()) || 
-          data.chineseName.toLowerCase().includes(this.inputValue.toLowerCase()) 
+            .includes(this.inputValue.toLowerCase()) ||
+          data.chineseName.toLowerCase().includes(this.inputValue.toLowerCase())
       );
     } else {
       this.driverBagData = data;

@@ -1,13 +1,16 @@
 <div class="d-flex justify-content-center align-items-center mt-2">
-  <mat-form-field class="example-form-field custom-bg col-10">
-    <mat-label>品牌名稱</mat-label>
+  <div class="col-5">
     <input
       matInput
       type="text"
+      class="form-control border-3 border-secondary"
+      placeholder="請輸入品牌名稱"
+      aria-label="Username"
+      aria-describedby="basic-addon1"
       [(ngModel)]="inputValue"
       (input)="filterContent()"
     />
-  </mat-form-field>
+  </div>
 </div>
 
 <div class="row me-2 d-flex justify-content-evenly">
@@ -17,7 +20,7 @@
   >
     <button
       type="button"
-      class="btn dataShow d-flex flex-column btn-outline-secondary"
+      class="btn dataShow d-flex flex-column btn-outline-secondary border-2"
       (click)="openDialog(driverBagData)"
     >
       <div
@@ -33,11 +36,4 @@
       </div>
     </button>
   </div>
-
-  <footer class="text-center text-lg-start bg-light text-muted mt-4">
-    <div
-      class="text-center p-3"
-      style="background-color: rgba(0, 0, 0, 0.05)"
-    ></div>
-  </footer>
 </div>

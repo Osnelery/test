@@ -1,15 +1,11 @@
 <mat-toolbar>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
+  <button mat-icon-button class="example-icon">
     <mat-icon (click)="drawer.toggle()">menu</mat-icon>
   </button>
 </mat-toolbar>
 
 <mat-drawer-container class="example-container">
-  <mat-drawer #drawer class="example-sidenav" mode="side">
+  <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="true">
     <button
       type="button"
       class="btn mt-2"
@@ -22,5 +18,26 @@
 
   <div class="main-content">
     <router-outlet></router-outlet>
+    <footer class="text-center text-lg-start bg-light text-muted mt-3">
+      <section class="d-flex justify-content-end p-3 border-bottom">
+        <div class="me-3 d-none d-lg-block">
+          <a class="bi bi-threads fs-3 me-2 ms-2" (click)="threadsClick()"></a>
+          <a
+            class="bi bi-instagram fs-3 me-2 ms-2"
+            (click)="instagramClick()"
+          ></a>
+          <a
+            class="bi bi-twitter-x fs-3 me-2 ms-2"
+            (click)="twitterClick()"
+          ></a>
+          <a class="bi bi-discord fs-3 me-2 ms-2" (click)="discordClick()"></a>
+        </div>
+      </section>
+
+      <div
+        class="text-center p-3"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      ></div>
+    </footer>
   </div>
 </mat-drawer-container>

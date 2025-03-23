@@ -36,4 +36,17 @@ export class AppComponent {
   navigateTo(path: string | undefined) {
     this.router.navigate([path]);
   }
+
+  instagramClick() {
+    window.open('https://www.instagram.com/osneleyr_3522/');
+  }
+  twitterClick() {
+    window.open('https://x.com/wqwq3522');
+  }
+  discordClick() {
+    window.open('https://discord.gg/w3k9Nbhzy9');
+  }
+  threadsClick() {
+    window.open('https://www.threads.net/@osneleyr_3522');
+  }
 }
