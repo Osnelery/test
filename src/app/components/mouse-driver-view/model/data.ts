@@ -932,7 +932,7 @@ export const data: mouseDriverViewRes[] = [
     id: '21',
     img: 'images/TurtleRoccat.png',
     englishName: 'TurtleBeach & Roccat',
-    chineseName: '烏龜海灘 & 德國冰豹',
+    chineseName: '烏龜海灘',
     downloadDriverUrl:
       'https://support.turtlebeach.com/s/downloads?language=en_US#/319/Swarm-II',
     downloadMouseList: [

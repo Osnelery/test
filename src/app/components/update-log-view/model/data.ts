@@ -74,11 +74,46 @@ export const data: updateLog[] = [
   {
     date: '2025/03/23',
     title: '新增',
-    text: 'HackMD上所有品牌遷移完成 共45個',
+    text: 'HackMD上所有品牌遷移完成 共47個',
   },
   {
     date: '2025/03/23',
     title: '新增',
     text: '新增最新消息頁面切版',
+  },
+  {
+    date: '2025/03/23',
+    title: '新增',
+    text: '搜尋功能 尚未更改樣式',
+  },
+  {
+    date: '2025/03/23',
+    title: '修改',
+    text: '搜尋功能樣式',
+  },
+  {
+    date: '2025/03/23',
+    title: '新增',
+    text: 'HackMD所有資料搬移完成',
+  },
+  {
+    date: '2025/03/23',
+    title: '修改',
+    text: '主頁面切版',
+  },
+  {
+    date: '2025/03/23',
+    title: '修改',
+    text: 'FOOTER 調整',
+  },
+  {
+    date: '2025/03/23',
+    title: '新增',
+    text: 'FOOTER 圖示連結',
+  },
+  {
+    date: '2025/03/23',
+    title: '優化',
+    text: 'MENU進畫面時預設改為開啟',
   },
 ];
