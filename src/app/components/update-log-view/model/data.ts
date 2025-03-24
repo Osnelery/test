@@ -116,4 +116,19 @@ export const data: updateLog[] = [
     title: '優化',
     text: 'MENU進畫面時預設改為開啟',
   },
+  {
+    date: '2025/03/23',
+    title: '新增',
+    text: '部分支援型號',
+  },
+  {
+    date: '2025/03/23',
+    title: '調整',
+    text: '彈窗樣式',
+  },
+  {
+    date: '2025/03/24',
+    title: '上線',
+    text: '1.0.0版本',
+  },
 ];
