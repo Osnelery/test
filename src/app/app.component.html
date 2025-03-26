@@ -1,44 +1,8 @@
-<mat-toolbar>
-  <button mat-icon-button class="example-icon">
-    <mat-icon (click)="drawer.toggle()">menu</mat-icon>
-  </button>
-  <span> Version.1.0.0</span>
-</mat-toolbar>
-
-<mat-drawer-container class="example-container">
-  <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="true">
-    <button
-      type="button"
-      class="btn mt-2"
-      *ngFor="let routerPath of routers"
-      (click)="navigateTo(routerPath.path)"
-    >
-      {{ routerPath.title }}
-    </button>
-  </mat-drawer>
+<div class="container border-2 border">
+  <app-tool-bar></app-tool-bar>
 
   <div class="main-content">
     <router-outlet></router-outlet>
-    <footer class="text-center text-lg-start bg-light text-muted mt-3">
-      <section class="d-flex justify-content-end p-3 border-bottom">
-        <div class="me-3 d-none d-lg-block">
-          <i class="bi bi-threads fs-3 me-2 ms-2" (click)="threadsClick()"></i>
-          <i
-            class="bi bi-instagram fs-3 me-2 ms-2"
-            (click)="instagramClick()"
-          ></i>
-          <i
-            class="bi bi-twitter-x fs-3 me-2 ms-2"
-            (click)="twitterClick()"
-          ></i>
-          <i class="bi bi-discord fs-3 me-2 ms-2" (click)="discordClick()"></i>
-        </div>
-      </section>
-
-      <div
-        class="text-center p-3"
-        style="background-color: rgba(0, 0, 0, 0.05)"
-      ></div>
-    </footer>
   </div>
-</mat-drawer-container>
+  <app-footer></app-footer>
+</div>

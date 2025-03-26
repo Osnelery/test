@@ -1,34 +1,7 @@
-.example-container {
-  width: 100%;
-  height: calc(100% - 64px);
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-.example-sidenav {
-  text-align: center;
-  height: 100%;
-  overflow: auto;
-  width: 200px;
-  border-radius: 0px;
-}
-
-.btn {
-  background: transparent;
-  font-size: 20px;
-  color: black;
-  width: 100%;
-}
-
-.mat-toolbar {
-  background: #b69ce9;
-}
-
 .mat-drawer {
   background: #cabbe9;
 }
 
-.router-outlet {
-  height: 100%;
-  overflow: auto;
+.container {
+  max-width: 100%;
 }

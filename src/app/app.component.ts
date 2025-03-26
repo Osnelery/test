@@ -3,27 +3,28 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
-import { routes } from './app.routes';
+import { ToolBarComponent } from "./layout/tool-bar/tool-bar.component";
+import { FooterComponent } from "./layout/footer/footer.component";
 
 @Component({
   selector: 'app-root',
   imports: [
     MatButtonModule,
     MatSidenavModule,
-    MatToolbarModule,
     MatIconModule,
     CommonModule,
     RouterModule,
-  ],
+    ToolBarComponent,
+    FooterComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  constructor(private router: Router) {}
+  constructor() {}
   showFiller = false;
-  routers = routes;
+
   routerPath: any = [];
 
   ngOnInit() {
@@ -33,20 +34,6 @@ export class AppComponent {
     // console.log( this.routerPath);
   }
 
-  navigateTo(path: string | undefined) {
-    this.router.navigate([path]);
-  }
 
-  instagramClick() {
-    window.open('https://www.instagram.com/osneleyr_3522/');
-  }
-  twitterClick() {
-    window.open('https://x.com/wqwq3522');
-  }
-  discordClick() {
-    window.open('https://discord.gg/w3k9Nbhzy9');
-  }
-  threadsClick() {
-    window.open('https://www.threads.net/@osneleyr_3522');
-  }
+
 }
