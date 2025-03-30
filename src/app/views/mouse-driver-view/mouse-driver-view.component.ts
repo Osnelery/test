@@ -31,11 +31,11 @@ export class MouseDriverViewComponent {
   driverBagData: mouseDriverViewRes[] = data;
   driverBagFliterData: mouseDriverViewRes[] = data;
 
-  openDialog(data: mouseDriverViewRes) {
+  openDialog() {
     const dialog = this.dialog.open(DriverViewDialogComponent, {
       width: 'md',
     });
-    dialog.componentInstance.brandData = data;
+    // dialog.componentInstance.brandData = data;
   }
 
   filterContent() {

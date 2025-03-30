@@ -3,10 +3,11 @@ import { Routes } from '@angular/router';
 import { SpaceViewComponent } from './views/space-view/space-view.component';
 import { MouseDriverViewComponent } from './views/mouse-driver-view/mouse-driver-view.component';
 import { UpdateLogViewComponent } from './views/update-log-view/update-log-view.component';
+import { CooperativeCommunityComponent } from './views/cooperative-community/cooperative-community.component';
 
 export const routes: Routes = [
   {
-    title: '最新消息',
+    title: '首頁',
     path: '',
     component: SpaceViewComponent,
   },
@@ -22,7 +23,7 @@ export const routes: Routes = [
   },
   {
     title: '合作社群',
-    path: 'updateLog',
-    component: UpdateLogViewComponent,
+    path: 'community',
+    component: CooperativeCommunityComponent,
   },
 ];

@@ -4,10 +4,11 @@ import { data } from '../../../../common/data';
 import { mouseDriverViewRes } from '../../../../types/mouseDriverView/res/mouseDriverViewRes';
 import { CommonModule } from '@angular/common';
 import { OrderByNamePipe } from '../../../../pipes/order-by-name.pipe';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-driver-view-dialog',
-  imports: [MatExpansionModule, CommonModule, OrderByNamePipe],
+  imports: [MatExpansionModule, CommonModule, OrderByNamePipe, MatCardModule],
   templateUrl: './driver-view-dialog.component.html',
   styleUrl: './driver-view-dialog.component.scss',
 })

@@ -1,39 +1,92 @@
-<div class="d-flex justify-content-center align-items-center mt-2">
-  <div class="col-5">
-    <input
-      matInput
-      type="text"
-      class="form-control border-3 border-secondary"
-      placeholder="請輸入品牌名稱"
-      aria-label="Username"
-      aria-describedby="basic-addon1"
-      [(ngModel)]="inputValue"
-      (input)="filterContent()"
-    />
+<div class="container">
+  <div class="d-flex justify-content-center align-items-center mt-3 mb-3">
+    <div class="col-6">
+      <div class="input-group">
+        <div class="input-group input-group-lg">
+          <span class="input-group-text" id="inputGroup-sizing-lg">
+            <i class="bi bi-search"></i
+          ></span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-lg"
+            [(ngModel)]="inputValue"
+            (input)="filterContent()"
+            placeholder="請輸入品牌名稱"
+          />
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="row me-2 d-flex justify-content-evenly">
   <div
-    class="dataShow mt-4"
+    class="mb-3"
     *ngFor="let driverBagData of driverBagData | sortByNamePipe : 'englishName'"
   >
-    <button
-      type="button"
-      class="btn dataShow d-flex flex-column btn-outline-secondary border-2"
-      (click)="openDialog(driverBagData)"
+    <div
+      type="card"
+      class="btn btn-outline-secondary border-2 col-12 d-flex dataShow rounded-xl"
     >
-      <div
+      <div class="card-body d-flex">
+        <div class="d-flex align-items-center justify-content-center">
+          <img class="img" [src]="driverBagData.img" style="width: 400px" />
+        </div>
+
+        <div class="col text-center">
+          <h1 class="mt-2">
+            {{ driverBagData.englishName }} {{ driverBagData.chineseName }}
+          </h1>
+
+          <div class="row justify-content-evenly mt-5">
+            <button
+              type="button"
+              class="btn col-5 btn-primary text-white fs-5"
+              [disabled]="!driverBagData.downloadDriverUrl"
+            >
+              🚀 桌面驅動
+            </button>
+
+            <button
+              type="button"
+              class="btn col-5 btn-info text-black fs-5"
+              [disabled]="!driverBagData.webDriverUrl"
+            >
+              🌐 網頁驅動
+            </button>
+          </div>
+
+          <div class="row justify-content-evenly mt-5">
+            <button
+              type="button"
+              class="btn col-5 btn-secondary text-white fs-5"
+              [disabled]="!driverBagData.downloadDriverUrl"
+              (click)="openDialog()"
+            >
+              查看支援設備 ➤
+            </button>
+
+            <button
+              type="button"
+              class="btn col-5 btn-secondary text-white fs-5"
+              [disabled]="!driverBagData.webDriverUrl"
+              (click)="openDialog()"
+            >
+              查看支援設備 ➤
+            </button>
+          </div>
+        </div>
+
+        <!-- <div
         class="imgDiv flex-grow-1 d-flex align-items-center justify-content-center"
-      >
-        <img class="img" [src]="driverBagData.img" />
-      </div>
+      ></div>
       <div class="d-flex align-items-end">
         <label class="imgTitle text-center w-100" style="font-size: 18px"
           >{{ driverBagData.englishName }}
           {{ driverBagData.chineseName }}</label
         >
+      </div> -->
       </div>
-    </button>
+    </div>
   </div>
 </div>
