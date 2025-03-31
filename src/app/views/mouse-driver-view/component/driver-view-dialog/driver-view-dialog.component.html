@@ -1,17 +1,5 @@
 <div class="container">
   <div class="row gy-2 p-2 backGround">
-    <div class="text-center">
-      <img [src]="brandData?.img" class="brand-logo" />
-    </div>
-
-    <button
-      type="button"
-      class="btn btn-lg dataShow col-6 ms-3 btn-outline-primary mt-4"
-      (click)="getWindowsDriver()"
-      [disabled]="!brandData?.downloadDriverUrl"
-    >
-      前往桌面驅動
-    </button>
     <mat-accordion class="col-10" class="mouseText mb-3 mt-3">
       <mat-expansion-panel [disabled]="!brandData?.downloadDriverUrl">
         <mat-expansion-panel-header>
@@ -24,35 +12,6 @@
           "
         >
           {{ downloadMouseText }}
-        </span>
-      </mat-expansion-panel>
-    </mat-accordion>
-
-    <hr />
-
-    <button
-      type="button"
-      class="btn btn-lg dataShow col-6 ms-3 btn-outline-primary"
-      (click)="getWebDriver()"
-      [disabled]="!brandData?.webDriverUrl"
-    >
-      前往網頁驅動
-    </button>
-
-    <mat-accordion class="col-10" class="mouseText mb-3 mt-3">
-      <mat-expansion-panel [disabled]="!brandData?.webDriverUrl">
-        <mat-expansion-panel-header>
-          <mat-panel-title class="title">支援型號</mat-panel-title>
-          <mat-panel-description> </mat-panel-description>
-        </mat-expansion-panel-header>
-        <span
-          class="mt-2"
-          *ngFor="
-            let webMouseText of brandData?.webMouseList;
-            let isLast = last
-          "
-        >
-          {{ webMouseText }}
         </span>
       </mat-expansion-panel>
     </mat-accordion>

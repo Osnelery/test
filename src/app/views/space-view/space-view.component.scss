@@ -12,11 +12,34 @@ mat-card {
   filter: invert(100%);
 }
 
-.carousel{
+.carousel {
   width: 70%;
 }
 
-
 .carousel-indicators [data-bs-target] {
-  background-color: rgb(104, 103, 103); 
+  background-color: rgb(104, 103, 103);
 }
+
+.carouselImg {
+  max-width: 50%;
+  min-height: 450px;
+}
+
+.carousel-caption {
+  position: static;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.mat-tab{
+  min-height: 500px;
+}
+
+.mat-tab-label {
+  font-size: 55px !important;
+  font-weight: bold !important;
+}
+
+
+
+

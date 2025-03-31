@@ -1,6 +1,5 @@
 <div class="container mt-3">
   <h2 class="title text-center">合作社群</h2>
-
   <div class="d-flex justify-content-center align-items-center">
     <div
       id="carouselExampleCaptions"
@@ -22,33 +21,48 @@
           data-bs-slide-to="1"
           aria-label="Slide 2"
         ></button>
-        <!-- <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="2"
-        aria-label="Slide 3"
-      ></button> -->
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
       </div>
-      <div class="carousel-inner">
+      <div class="carousel-inner" style="background: rgb(179, 177, 177)">
         <div class="carousel-item active">
-          <img src="images/Lamzu.jpg" class="d-block w-100" />
-          <div class="carousel-caption d-none d-md-block">
-            <h4 class="text-black">羊羊的小天地</h4>
+          <a href="https://discord.gg/w3k9Nbhzy9">
+            <img
+              src="logo.png"
+              class="d-block w-100 carouselImg d-block mx-auto"
+            />
+          </a>
+          <div class="carousel-caption d-none d-md-block mb-2">
+            <h4 class="text-white fw-bold">不專業百科</h4>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="images/Lamzu.jpg" class="d-block w-100" />
-          <div class="carousel-caption d-none d-md-block">
-            <h4 class="text-black">羊羊的小花園</h4>
+          <a href="">
+            <img
+              src="carImage/羊羊的小天地.png"
+              class="d-block w-100 carouselImg d-block mx-auto"
+            />
+          </a>
+          <div class="carousel-caption d-none d-md-block mb-2">
+            <h4 class="text-white fw-bold">羊羊的小天地</h4>
           </div>
         </div>
-        <!-- <div class="carousel-item">
-        <img src="..." class="d-block w-100"  />
-        <div class="carousel-caption d-none d-md-block">
-          <h5></h5>
-          <p></p>
+        <div class="carousel-item">
+          <a href="https://discord.gg/PgPfRFA6">
+            <img
+              src="carImage/羊羊的小花園.png"
+              class="d-block w-100 carouselImg d-block mx-auto"
+            />
+          </a>
+
+          <div class="carousel-caption d-none d-md-block mb-2">
+            <h4 class="text-white fw-bold">羊羊的小花園</h4>
+          </div>
         </div>
-      </div> -->
       </div>
       <button
         class="carousel-control-prev carouselButton"
@@ -71,20 +85,61 @@
     </div>
   </div>
 
-  <h2 class="title text-center mt-2">最新消息</h2>
-  <mat-card class="mb-5">
-    <div
-      class="content row"
-      *ngFor="let latestNewsList of latestNewsList | sortByDate"
-    >
-      <button
-        type="button"
-        class="btn btn-lg col text-start"
-        (click)="openDialog(latestNewsList)"
+  <div class="container mt-5">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a
+          class="nav-link active fs-4"
+          id="home-tab"
+          data-bs-toggle="tab"
+          href="#home"
+          role="tab"
+          aria-controls="home"
+          aria-selected="true"
+          >最新消息</a
+        >
+      </li>
+      <li class="nav-item" role="presentation">
+        <a
+          class="nav-link fs-4"
+          id="profile-tab"
+          data-bs-toggle="tab"
+          href="#profile"
+          role="tab"
+          aria-controls="profile"
+          aria-selected="false"
+          >公告</a
+        >
+      </li>
+    </ul>
+
+    <div class="tab-content mt-3" id="myTabContent">
+      <div
+        class="tab-pane fade show active"
+        id="home"
+        role="tabpanel"
+        aria-labelledby="home-tab"
       >
-        {{ latestNewsList.date }}
-        {{ latestNewsList.title }}
-      </button>
+        <div
+          class="content"
+          *ngFor="let latestNewsList of latestNewsList | sortByDate"
+        >
+          <button
+            type="button"
+            class="btn btn-lg col-12 text-start mt-1"
+            (click)="openDialog(latestNewsList)"
+          >
+            {{ latestNewsList.date }}
+            {{ latestNewsList.title }}
+          </button>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="profile"
+        role="tabpanel"
+        aria-labelledby="profile-tab"
+      ></div>
     </div>
-  </mat-card>
+  </div>
 </div>
