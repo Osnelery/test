@@ -1,40 +1,31 @@
 import { Component, Input } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { data } from '../../../../common/data';
-import { mouseDriverViewRes } from '../../../../types/mouseDriverView/res/mouseDriverViewRes';
 import { CommonModule } from '@angular/common';
 import { OrderByNamePipe } from '../../../../pipes/order-by-name.pipe';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-driver-view-dialog',
-  imports: [MatExpansionModule, CommonModule, OrderByNamePipe, MatCardModule],
+  imports: [
+    MatExpansionModule,
+    CommonModule,
+    OrderByNamePipe,
+    MatCardModule,
+    MatDividerModule,
+    MatListModule,
+  ],
   templateUrl: './driver-view-dialog.component.html',
   styleUrl: './driver-view-dialog.component.scss',
 })
 export class DriverViewDialogComponent {
-  constructor() {}
+  constructor(private dialog: MatDialogRef<any>) {}
 
-  @Input() brandData: mouseDriverViewRes | undefined;
+  @Input() detailsData!: any;
 
-  driverData: mouseDriverViewRes[] = data;
-
-  getWindowsDriver() {
-    if (this.brandData) {
-      window.open(this.brandData.downloadDriverUrl);
-    }
-  }
-
-  getWebDriver() {
-    if (this.brandData) {
-      window.open(this.brandData.webDriverUrl);
-    }
-  }
-
-  getFormattedDownloadMouseList(): string {
-    if (this.brandData) {
-      return this.brandData.downloadMouseList.join(', ');
-    }
-    return '';
+  close() {
+    this.dialog.close();
   }
 }

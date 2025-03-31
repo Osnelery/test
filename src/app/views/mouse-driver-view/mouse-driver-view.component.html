@@ -28,13 +28,12 @@
     class="mb-3"
     *ngFor="let driverBagData of driverBagData | sortByNamePipe : 'englishName'"
   >
-    <div
-      type="card"
-      class="btn btn-outline-secondary border-2 col-12 d-flex dataShow rounded-xl"
-    >
+    <div class="card border-2 col-12 d-flex dataShow rounded-xl border-black">
       <div class="card-body d-flex">
         <div class="d-flex align-items-center justify-content-center">
-          <img class="img" [src]="driverBagData.img" style="width: 400px" />
+          <a [href]="driverBagData.website">
+            <img class="img" [src]="driverBagData.img" style="width: 400px" />
+          </a>
         </div>
 
         <div class="col text-center">
@@ -45,18 +44,30 @@
           <div class="row justify-content-evenly mt-5">
             <button
               type="button"
-              class="btn col-5 btn-primary text-white fs-5"
-              [disabled]="!driverBagData.downloadDriverUrl"
+              class="btn col-5 btn-primary fs-5"
+              [disabled]="
+                !driverBagData.details.downloadDriver.downloadDriverUrl
+              "
             >
-              🚀 桌面驅動
+              <a
+                [href]="driverBagData.details.downloadDriver.downloadDriverUrl"
+                target="_blank"
+              >
+                🚀 桌面驅動
+              </a>
             </button>
 
             <button
               type="button"
-              class="btn col-5 btn-info text-black fs-5"
-              [disabled]="!driverBagData.webDriverUrl"
+              class="btn col-5 btn-primary text-black fs-5"
+              [disabled]="!driverBagData.details.webDriverData.webDriverUrl"
             >
-              🌐 網頁驅動
+              <a
+                [href]="driverBagData.details.webDriverData.webDriverUrl"
+                target="_blank"
+              >
+                🌐 網頁驅動
+              </a>
             </button>
           </div>
 
@@ -64,8 +75,14 @@
             <button
               type="button"
               class="btn col-5 btn-secondary text-white fs-5"
-              [disabled]="!driverBagData.downloadDriverUrl"
-              (click)="openDialog()"
+              [disabled]="
+                !driverBagData.details.downloadDriver.downloadDriverUrl
+              "
+              (click)="
+                openDialog(
+                  driverBagData.details.downloadDriver.downloadMouseList
+                )
+              "
             >
               查看支援設備 ➤
             </button>
@@ -73,8 +90,10 @@
             <button
               type="button"
               class="btn col-5 btn-secondary text-white fs-5"
-              [disabled]="!driverBagData.webDriverUrl"
-              (click)="openDialog()"
+              (click)="
+                openDialog(driverBagData.details.webDriverData.webMouseList)
+              "
+              [disabled]="!driverBagData.details.webDriverData.webDriverUrl"
             >
               查看支援設備 ➤
             </button>

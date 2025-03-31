@@ -15,9 +15,4 @@ export const routes: Routes = [
     path: 'mouseDriver',
     component: MouseDriverViewComponent,
   },
-  {
-    title: '更新資訊',
-    path: 'updateLog',
-    component: UpdateLogViewComponent,
-  },
 ];

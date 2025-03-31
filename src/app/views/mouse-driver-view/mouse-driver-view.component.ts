@@ -1,15 +1,19 @@
 import { MatDialog } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { data } from '../../common/data';
 import { SortByNamePipePipe } from '../../pipes/sort-by-name-pipe.pipe';
-import { mouseDriverViewRes } from '../../types/mouseDriverView/res/mouseDriverViewRes';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { DriverViewDialogComponent } from './component/driver-view-dialog/driver-view-dialog.component';
+import {
+  DownLoadDataRes,
+  MouseDriverRes,
+  WebDriverDataRes,
+} from '../../types/mouseDriverView/res/mouseDriverViewRes';
+import { mouseDriverData } from '../../common/data';
 
 @Component({
   selector: 'app-mouse-driver-view',
@@ -28,14 +32,14 @@ import { DriverViewDialogComponent } from './component/driver-view-dialog/driver
 export class MouseDriverViewComponent {
   constructor(private dialog: MatDialog) {}
   inputValue: string = '';
-  driverBagData: mouseDriverViewRes[] = data;
-  driverBagFliterData: mouseDriverViewRes[] = data;
+  driverBagData: MouseDriverRes[] = mouseDriverData;
+  driverBagFliterData: MouseDriverRes[] = mouseDriverData;
 
-  openDialog() {
+  openDialog(details: WebDriverDataRes | DownLoadDataRes) {
     const dialog = this.dialog.open(DriverViewDialogComponent, {
-      width: 'md',
+      minWidth: '500px'
     });
-    // dialog.componentInstance.brandData = data;
+    dialog.componentInstance.detailsData = details;
   }
 
   filterContent() {
@@ -48,7 +52,7 @@ export class MouseDriverViewComponent {
           data.chineseName.toLowerCase().includes(this.inputValue.toLowerCase())
       );
     } else {
-      this.driverBagData = data;
+      this.driverBagData = mouseDriverData;
     }
   }
 }
