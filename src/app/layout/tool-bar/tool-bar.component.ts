@@ -15,7 +15,9 @@ export class ToolBarComponent {
 
   routers = routes;
 
-  navigateTo(path: string | undefined) {
-    this.router.navigate([path]);
+  navigateTo(path: string | undefined, parentPath: string | undefined = '') {
+    const fullPath = parentPath ? `${parentPath}/${path}` : path;
+
+    this.router.navigate([fullPath]);
   }
 }

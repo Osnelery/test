@@ -4,28 +4,39 @@
     <span class="ms-3"> Version.2.0.0</span>
 
     <div class="ms-auto d-flex align-items-center justify-content-center">
-      <div class="me-3">
+      <div class="me-3" *ngFor="let routerPath of routers">
         <button
+          *ngIf="!routerPath.children || routerPath.children.length === 0"
           type="button"
           class="btn col"
-          *ngFor="let routerPath of routers"
           (click)="navigateTo(routerPath.path)"
         >
-          <h3>
-            {{ routerPath.title }}
-          </h3>
+          <h3>{{ routerPath.title }}</h3>
         </button>
-        <!-- <button type="button" class="btn col">最新消息</button>
-    <button type="button" class="btn col" data-bs-toggle="dropdown">
-      工具
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <i class="dropdown-item" href="#"><h4>滑鼠驅動懶人包</h4></i>
-      <i class="dropdown-item" href="#"><h4>滑鼠驅動懶人包</h4></i>
-    </ul>
 
-    <button type="button" class="btn col">更新資訊</button>
-    <button type="button" class="btn col">合作社群</button> -->
+        <div
+          *ngIf="routerPath.children && routerPath.children.length > 0"
+          class="dropdown"
+        >
+          <button
+            class="btn col"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <h3>{{ routerPath?.title }}<i class="bi bi-chevron-down ms-2"></i></h3>
+          </button>
+          <ul class="dropdown-menu">
+            <li *ngFor="let child of routerPath.children">
+              <a
+                class="dropdown-item"
+                (click)="navigateTo(child.path, routerPath.path)"
+              >
+                {{ child.title }}
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </mat-toolbar>

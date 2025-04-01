@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
-
 import { SpaceViewComponent } from './views/space-view/space-view.component';
 import { MouseDriverViewComponent } from './views/mouse-driver-view/mouse-driver-view.component';
-import { UpdateLogViewComponent } from './views/update-log-view/update-log-view.component';
+import { BrandOverviewComponent } from './views/brand-overview/brand-overview.component';
 
 export const routes: Routes = [
   {
@@ -11,8 +10,24 @@ export const routes: Routes = [
     component: SpaceViewComponent,
   },
   {
-    title: '滑鼠驅動懶人包',
-    path: 'mouseDriver',
-    component: MouseDriverViewComponent,
+    title: '品牌查詢',
+    path: 'brandOverview',
+    component: BrandOverviewComponent,
+  },
+  {
+    title: '工具',
+    path: 'tool',
+    children: [
+      {
+        title: '滑鼠驅動懶人包',
+        path: 'mouseDriver',
+        component: MouseDriverViewComponent,
+      },
+      {
+        title: '鍵盤驅動懶人包',
+        path: '',
+        component: SpaceViewComponent,
+      },
+    ],
   },
 ];

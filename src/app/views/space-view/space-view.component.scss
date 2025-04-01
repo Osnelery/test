@@ -31,7 +31,7 @@ mat-card {
   padding-top: 10px;
 }
 
-.mat-tab{
+.mat-tab {
   min-height: 500px;
 }
 
@@ -40,6 +40,22 @@ mat-card {
   font-weight: bold !important;
 }
 
+.tabsCard {
+  min-height: 600px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
 
+.nav-tabs {
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
 
+.nav-tabs .nav-item:first-child .nav-link {
+  border-top-left-radius: 30px;
+}
 
+.nav-tabs .nav-link {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
