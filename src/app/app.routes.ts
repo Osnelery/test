@@ -15,16 +15,16 @@ export const routes: Routes = [
     component: BrandOverviewComponent,
   },
   {
-    title: '工具',
+    title: '驅動懶人包',
     path: 'tool',
     children: [
       {
-        title: '滑鼠驅動懶人包',
+        title: '滑鼠',
         path: 'mouseDriver',
         component: MouseDriverViewComponent,
       },
       {
-        title: '鍵盤驅動懶人包',
+        title: '鍵盤',
         path: '',
         component: SpaceViewComponent,
       },
