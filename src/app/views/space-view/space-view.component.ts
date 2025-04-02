@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { latestNewsData } from './model/data';
 import { SortByDatePipe } from '../../pipes/sort-by-date.pipe';
 import { LatestNewsDialogComponent } from './component/latest-news-dialog/latest-news-dialog.component';
@@ -15,16 +15,24 @@ import { StatementDialogComponent } from './component/statement-dialog/statement
   styleUrl: './space-view.component.scss',
 })
 export class SpaceViewComponent {
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog) {
+    window.onbeforeunload = () => {
+      sessionStorage.clear();
+    };
+  }
 
   latestNewsList: any = latestNewsData;
 
   ngOnInit() {
-    this.dialog.open(StatementDialogComponent, {
-      minWidth: '500px',
-      height: '280px',
-      backdropClass: 'custom-backdrop'
-    });
+    if (sessionStorage.getItem('statement') === null) {
+      sessionStorage.setItem('statement', 'false');
+    }
+
+    if (sessionStorage.getItem('statement') === 'false') {
+      this.openStatementDialog();
+    } else {
+      return;
+    }
   }
 
   openDialog(data: any) {
@@ -33,5 +41,13 @@ export class SpaceViewComponent {
       height: '400px',
     });
     dialog.componentInstance.data = data;
+  }
+
+  openStatementDialog() {
+    this.dialog.open(StatementDialogComponent, {
+      minWidth: '500px',
+      height: '280px',
+    });
+    sessionStorage.setItem('statement', 'true');
   }
 }
