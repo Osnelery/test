@@ -4,7 +4,7 @@
       <div class="col-md-4 d-flex justify-content-between align-items-center">
         <img [src]="detailsData.img" class="img img-fluid" />
       </div>
-      <button type="button" class="btn btn-outline-primary webButton">
+      <button type="button" class="btn btn-outline-primary webButton" (click)="goWeb(detailsData.website)">
         前往官網
       </button>
       <button
