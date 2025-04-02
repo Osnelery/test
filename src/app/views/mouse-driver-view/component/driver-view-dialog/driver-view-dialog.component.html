@@ -1,20 +1,90 @@
 <div class="container">
   <div class="row gy-2 p-4 backGround">
-    <div class="d-flex justify-content-between align-items-center">
-      <h2>支援型號</h2>
+    <div class="d-flex justify-content-between imgButtonDiv align-items-center">
+      <div class="col-md-4 d-flex justify-content-between align-items-center">
+        <img [src]="detailsData.img" class="img img-fluid" />
+      </div>
+      <button type="button" class="btn btn-outline-primary webButton">
+        前往官網
+      </button>
       <button
         type="button"
-        class="btn-close"
-        aria-label="Close"
+        class="btn btn-outline-danger col-2 closeButton"
         (click)="close()"
-      ></button>
+      >
+        關閉
+      </button>
     </div>
 
-    <mat-card appearance="outlined">
-      <mat-list *ngFor="let details of detailsData | orderByName">
-        <mat-list-item class="text"> {{ details }}</mat-list-item>
-        <mat-divider></mat-divider>
-      </mat-list>
-    </mat-card>
+    <div>
+      <div class="d-flex justify-content-between align-items-center title">
+        <h4 class="col-6 text-center mt-2">
+          {{ detailsData.englishName }}
+        </h4>
+
+        <h4 class="col-6 text-center mt-2">支援型號</h4>
+      </div>
+
+      <mat-card
+        appearance="outlined"
+        class="mb-2 topCard"
+        *ngIf="detailsData.details.downloadDriver.downloadDriverUrl"
+      >
+        <div class="d-flex justify-content-evenly align-items-center cardDiv">
+          <div class="col-5 d-flex justify-content-center align-items-center">
+            <button
+              type="button"
+              class="btn btn-outline-primary urlButton"
+              (click)="close()"
+            >
+              本地驅動下載
+            </button>
+          </div>
+          <div class="vr mx-10"></div>
+          <div class="col-5 contentDiv text-left border-left-1">
+            <div
+              *ngFor="
+                let text of detailsData.details.downloadDriver.downloadMouseList
+                  | orderByName
+              "
+            >
+              <span>
+                {{ text }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+
+      <mat-card
+        appearance="outlined"
+        *ngIf="detailsData.details.webDriverData.webDriverUrl"
+      >
+        <div class="d-flex justify-content-evenly align-items-center cardDiv">
+          <div class="col-5 d-flex justify-content-center align-items-center">
+            <button
+              type="button"
+              class="btn btn-outline-primary urlButton"
+              (click)="close()"
+            >
+              前往網路驅動
+            </button>
+          </div>
+          <div class="vr mx-10"></div>
+          <div class="col-5 contentDiv text-left border-left-1">
+            <div
+              *ngFor="
+                let text of detailsData.details.webDriverData.webMouseList
+                  | orderByName
+              "
+            >
+              <span>
+                {{ text }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
   </div>
 </div>

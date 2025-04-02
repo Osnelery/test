@@ -35,11 +35,12 @@ export class MouseDriverViewComponent {
   driverBagData: MouseDriverRes[] = mouseDriverData;
   driverBagFliterData: MouseDriverRes[] = mouseDriverData;
 
-  openDialog(details: WebDriverDataRes | DownLoadDataRes) {
+  openDialog(row: MouseDriverRes) {
     const dialog = this.dialog.open(DriverViewDialogComponent, {
-      minWidth: '500px'
+      minWidth: '800px',
+      minHeight: '500px',
     });
-    dialog.componentInstance.detailsData = details;
+    dialog.componentInstance.detailsData = row;
   }
 
   filterContent() {
