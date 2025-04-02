@@ -20,7 +20,8 @@ export class SpaceViewComponent {
 
   openDialog(data: any) {
     const dialog = this.dialog.open(LatestNewsDialogComponent, {
-      width: 'md',
+      minWidth: '650px',
+      height: '400px',
     });
     dialog.componentInstance.data = data;
   }

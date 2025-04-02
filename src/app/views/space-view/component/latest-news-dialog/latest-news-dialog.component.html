@@ -1,6 +1,10 @@
-<div class="container">
-  <div class="row gy-2 p-2 backGround">
-    <h2>{{ data.title }}</h2>
-    <label>{{ data.text }}</label>
+<div class="mt-3">
+  <h1 class="text-center">{{ data.title }}</h1>
+</div>
+
+<div class="container text-center mt-2">
+  <div class="text d-flex justify-content-center align-items-center">
+    <label class="text-wrap textDiv">{{ data.text }}</label>
   </div>
+  <button type="button" class="btn btn-outline-danger col-10 mt-4"  (click)="close()">關閉</button>
 </div>

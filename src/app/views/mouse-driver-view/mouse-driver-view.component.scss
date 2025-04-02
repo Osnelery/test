@@ -1,10 +1,11 @@
 .section {
   overflow-y: auto;
 }
-
 .dataShow {
-  min-height: 300px;
-  border-radius: 2rem;
+  height: 200px;
+  width: 325px;
+  text-align: center;
+  border-radius: 20px;
 }
 
 .img {
@@ -15,8 +16,3 @@
   color: black;
 }
 
-a {
-  color: white;
-  display: block;
-  text-decoration: none;
-}
