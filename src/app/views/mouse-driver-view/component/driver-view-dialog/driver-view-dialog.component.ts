@@ -6,9 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogRef } from '@angular/material/dialog';
-import {
-  MouseDriverRes,
-} from '../../../../types/mouseDriverView/res/mouseDriverViewRes';
+import { MouseDriverRes } from '../../../../types/mouseDriverView/res/mouseDriverViewRes';
 
 @Component({
   selector: 'app-driver-view-dialog',
@@ -29,10 +27,6 @@ export class DriverViewDialogComponent {
   @Input() detailsData!: MouseDriverRes;
 
   downLoadMouseList: any;
-
-  ngOnInit() {
-    console.log(this.detailsData);
-  }
 
   close() {
     this.dialog.close();
