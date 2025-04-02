@@ -1,9 +1,6 @@
 .mat-toolbar {
   background: #cabbe9;
-}
-
-.container {
-  max-width: 100%;
+  width: 100%;
 }
 
 .logo {
@@ -22,6 +19,6 @@
 }
 
 .dropdown-item:hover {
-  background-color: #f8f9fa; 
+  background-color: #f8f9fa;
   color: #0056b3;
 }
