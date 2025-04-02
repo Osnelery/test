@@ -6,6 +6,7 @@ import { LatestNewsDialogComponent } from './component/latest-news-dialog/latest
 import { MatDialog } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import { StatementDialogComponent } from './component/statement-dialog/statement-dialog.component';
 
 @Component({
   selector: 'app-space-view',
@@ -17,6 +18,14 @@ export class SpaceViewComponent {
   constructor(private dialog: MatDialog) {}
 
   latestNewsList: any = latestNewsData;
+
+  ngOnInit() {
+    this.dialog.open(StatementDialogComponent, {
+      minWidth: '500px',
+      height: '280px',
+      backdropClass: 'custom-backdrop'
+    });
+  }
 
   openDialog(data: any) {
     const dialog = this.dialog.open(LatestNewsDialogComponent, {
