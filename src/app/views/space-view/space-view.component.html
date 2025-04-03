@@ -147,7 +147,19 @@
         role="tabpanel"
         aria-labelledby="profile-tab"
       >
-        test
+        <div
+          class="content"
+          *ngFor="let announcementList of announcementList | sortByDate"
+        >
+          <button
+            type="button"
+            class="btn btn-lg col-12 text-start mt-1"
+            (click)="openDialog(announcementList)"
+          >
+            {{ announcementList.type }}
+            {{ announcementList.title }}
+          </button>
+        </div>
       </div>
     </div>
   </div>

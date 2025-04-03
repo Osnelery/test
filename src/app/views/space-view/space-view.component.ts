@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { StatementDialogComponent } from './component/statement-dialog/statement-dialog.component';
+import { announcementData } from './model/announcementData';
 
 @Component({
   selector: 'app-space-view',
@@ -22,6 +23,7 @@ export class SpaceViewComponent {
   }
 
   latestNewsList: any = latestNewsData;
+  announcementList: any = announcementData;
 
   ngOnInit() {
     if (sessionStorage.getItem('statement') === null) {
@@ -37,8 +39,8 @@ export class SpaceViewComponent {
 
   openDialog(data: any) {
     const dialog = this.dialog.open(LatestNewsDialogComponent, {
-      minWidth: '650px',
-      height: '400px',
+      minWidth: '550px',
+      height: '300px',
     });
     dialog.componentInstance.data = data;
   }
