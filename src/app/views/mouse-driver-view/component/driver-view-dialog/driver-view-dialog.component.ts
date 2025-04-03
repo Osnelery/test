@@ -35,4 +35,8 @@ export class DriverViewDialogComponent {
   goWeb(url: string) {
     window.open(url, '_blank');
   }
+
+  getUrl(url: string) {
+    window.open(url, '_blank');
+  }
 }

@@ -4,7 +4,11 @@
       <div class="col-md-4 d-flex justify-content-between align-items-center">
         <img [src]="detailsData.img" class="img img-fluid" />
       </div>
-      <button type="button" class="btn btn-outline-primary webButton" (click)="goWeb(detailsData.website)">
+      <button
+        type="button"
+        class="btn btn-outline-primary webButton"
+        (click)="goWeb(detailsData.website)"
+      >
         前往官網
       </button>
       <button
@@ -35,7 +39,9 @@
             <button
               type="button"
               class="btn btn-outline-primary urlButton"
-              (click)="close()"
+              (click)="
+                getUrl(detailsData.details.downloadDriver.downloadDriverUrl)
+              "
             >
               本地驅動下載
             </button>
@@ -65,7 +71,7 @@
             <button
               type="button"
               class="btn btn-outline-primary urlButton"
-              (click)="close()"
+              (click)="getUrl(detailsData.details.webDriverData.webDriverUrl)"
             >
               前往網路驅動
             </button>
