@@ -8,7 +8,7 @@ export const latestNewsData = [
   {
     date: '2025/04/03',
     type: '緊急修復',
-    title: '功能修復',
+    title: '驅動按鈕功能修復',
     text: '緊急修復驅動下載與前往網路驅動功能沒有作用',
   },
   {
