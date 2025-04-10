@@ -9,11 +9,11 @@ export const routes: Routes = [
     path: '',
     component: SpaceViewComponent,
   },
-  // {
-  //   title: '品牌查詢',
-  //   path: 'brandOverview',
-  //   component: BrandOverviewComponent,
-  // },
+  {
+    title: '品牌查詢',
+    path: 'brandOverview',
+    component: BrandOverviewComponent,
+  },
   {
     title: '驅動懶人包',
     path: 'tool',
