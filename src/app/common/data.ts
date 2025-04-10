@@ -1,5 +1,6 @@
 import { MouseDriverRes } from '../types/mouseDriverView/res/mouseDriverViewRes';
 import {
+  Pwnage,
   ajazz,
   akko,
   atk,
@@ -382,5 +383,13 @@ export const mouseDriverData: MouseDriverRes[] = [
     website:
       'https://www.gravastar.com/?srsltid=AfmBOopPKwyJh1SvWeDNiZ1mTVNObqTxgryXhBQdVvLEE8BDMjZV-Aer',
     details: gravaStar,
+  },
+  {
+    img: 'images/Pwnage.png',
+    englishName: 'Pwnage',
+    chineseName: '',
+    website:
+      'https://pwnage.com/',
+    details: Pwnage,
   },
 ];

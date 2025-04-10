@@ -32,6 +32,7 @@ import {
   ninjutsoDownLoad,
   nzxtDownLoad,
   pulsarDownLoad,
+  pwnageDownLoad,
   rapooDownLoad,
   razerDownLoad,
   rogDownLoad,
@@ -80,6 +81,7 @@ import {
   ninjutsoWeb,
   nzxtWeb,
   pulsarWeb,
+  pwnageWeb,
   rapooWeb,
   razerWeb,
   rogWeb,
@@ -279,4 +281,8 @@ export const dareu: DetailsRes = {
 export const gravaStar: DetailsRes = {
   downloadDriver: gravaStarDownLoad,
   webDriverData: gravaStarWeb,
+};
+export const Pwnage: DetailsRes = {
+  downloadDriver: pwnageDownLoad,
+  webDriverData: pwnageWeb,
 };

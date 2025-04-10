@@ -123,8 +123,8 @@ export const incottWeb: WebDriverDataRes = {
   webKeyboardList: [],
 };
 export const ipiWeb: WebDriverDataRes = {
-  webDriverUrl: 'https://www.154800vip.cn/#/connect',
-  webMouseList: [],
+  webDriverUrl: 'https://shan.ipigame.cn/',
+  webMouseList: ['飄 11', '飄 18', '飄 88'],
   webKeyboardList: ['Cloud98', 'Rain65M', 'Rain65 PRO'],
 };
 export const irocksWeb: WebDriverDataRes = {
@@ -351,6 +351,17 @@ export const gravaStarWeb: WebDriverDataRes = {
     'Mercury M2 - Stealth Black',
     'Mercury M2 - Transparent Black',
     'Mercury M1 Pro Battle Worn Edition-Silver Mist',
+  ],
+  webKeyboardList: [],
+};
+export const pwnageWeb: WebDriverDataRes = {
+  webDriverUrl:
+    'https://pwnage.com/pages/drivers-hub?srsltid=AfmBOooVMIVH7LIUUz_6S8_ji0tuNFrpJuRzK6BcQKfyIWm2ZDGsXKdV',
+  webMouseList: [
+    'StormBreaker V2',
+    'StormBreaker V3',
+    'StormBreaker Max CF',
+    'Trinity CF',
   ],
   webKeyboardList: [],
 };

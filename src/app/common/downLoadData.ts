@@ -1472,3 +1472,9 @@ export const gravaStarDownLoad: DownLoadDataRes = {
     'Mercury K1 Lite - Snow White',
   ],
 };
+
+export const pwnageDownLoad: DownLoadDataRes = {
+  downloadDriverUrl: '',
+  downloadMouseList: [],
+  downloadKeyboardList: [],
+};
