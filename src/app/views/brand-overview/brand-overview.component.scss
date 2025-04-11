@@ -1,3 +1,11 @@
-.example-card {
-  max-width: 400px;
+.chip-scroll-area {
+  overflow-y: hidden;
+  overflow-x: auto;
+  max-height: 35px;
+  width: 220px;
+  scrollbar-color: gray transparent;
+}
+
+mat-card {
+  max-height: 500px;
 }

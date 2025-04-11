@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,7 +12,21 @@ import { dataList } from './data/data';
   styleUrl: './brand-overview.component.scss',
 })
 export class BrandOverviewComponent {
-  typeTotal: string[] = ['滑鼠', '鍵盤', '滑鼠墊'];
+  typeTotal: string[] = [
+    '滑鼠',
+    '鍵盤',
+    '滑鼠墊',
+    '防滑貼',
+    '腳貼',
+    '改裝配件',
+    '袖套',
+    '週邊',
+  ];
 
-  data = dataList
+  data = dataList;
+  allSize: number = 0;
+
+  ngOnInit() {
+    this.allSize = this.data.length;
+  }
 }

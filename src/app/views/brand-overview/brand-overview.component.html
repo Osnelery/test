@@ -22,50 +22,103 @@
     </div>
   </div>
 
-  <div class="d-flex justify-content-between align-items-center p-3">
-    <div class="row">
-      <mat-card
-        class="example-card ms-4 mb-4"
-        appearance="outlined"
-        *ngFor="let data of data"
-      >
-        <mat-card-header>
-          <mat-card-title>{{ data.englishName }}</mat-card-title>
-          <mat-card-subtitle>{{ data.chineseName }}</mat-card-subtitle>
-        </mat-card-header>
-        <img [src]="data.img" />
-        <mat-card-content class="mt-auto">
-          <div>
-            主打產品 : <span *ngIf="data.products">{{ data.products }}</span>
+  <div class="row justify-content-between align-items-center p-3">
+    <div class="d-flex">
+      <div>
+        <div class="row">
+          <div class="col-lg-10 col-md-8 col-sm-12">
+            <div class="row">
+              <div
+                class="col-xl-4 col-md-6 col-sm-12 mb-4"
+                *ngFor="let data of data"
+              >
+                <mat-card class="example-card h-100" appearance="outlined">
+                  <mat-card-header>
+                    <mat-card-title>{{ data.englishName }}</mat-card-title>
+                    <mat-card-subtitle>{{
+                      data.chineseName
+                    }}</mat-card-subtitle>
+                  </mat-card-header>
+                  <div
+                    class="d-flex justify-content-center align-items-center h-100"
+                  >
+                    <img
+                      [src]="data.img"
+                      class="img-fluid"
+                      style="max-width: 300px"
+                    />
+                  </div>
+                  <mat-card-content class="mt-auto">
+                    <div>
+                      主打產品 :
+                      <span *ngIf="data.products">{{ data.products }}</span>
+                    </div>
+                    <div>
+                      官網 :
+                      <a
+                        [href]="data.webUrl"
+                        *ngIf="data.webUrl"
+                        target="_blank"
+                        >前往</a
+                      >
+                    </div>
+                    <div>
+                      官方 Twitter :
+                      <a
+                        [href]="data.twitterUrl"
+                        *ngIf="data.twitterUrl"
+                        target="_blank"
+                        >前往</a
+                      >
+                    </div>
+                    <div>
+                      官方 Discord :
+                      <a
+                        [href]="data.discordUrl"
+                        *ngIf="data.discordUrl"
+                        target="_blank"
+                        >前往</a
+                      >
+                    </div>
+                    <div>
+                      QQ號 :
+                      <span *ngIf="data.qqNumber">{{ data.qqNumber }}</span>
+                    </div>
+                  </mat-card-content>
+                  <mat-card-actions class="d-flex align-items-center">
+                    <div
+                      class="d-flex flex-wrap gap-2 overflow-y-auto chip-scroll-area"
+                      aria-label="Tags"
+                    >
+                      <mat-chip *ngFor="let tag of data.tag" class="me-1">
+                        {{ tag }}
+                      </mat-chip>
+                    </div>
+
+                    <button
+                      mat-button
+                      class="ms-auto"
+                      [disabled]="data.productsList.length <= 0"
+                    >
+                      產品列表<i class="bi bi-caret-right-fill"></i>
+                    </button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
           </div>
-          <div>
-            官方 Twitter :
-            <a [href]="data.twitterUrl" *ngIf="data.discordUrl">前往</a>
+
+          <div class="col-lg-2 col-md-3 col-sm-12">
+            <div class="row">
+              <label> 目前品牌總數 : {{allSize}} 筆</label>
+              <div class="col-12 mt-2" *ngFor="let typeTotal of typeTotal">
+                <mat-chip-option class="w-100 text-center">{{
+                  typeTotal
+                }}</mat-chip-option>
+              </div>
+            </div>
           </div>
-          <div>
-            官方 Discord :
-            <a [href]="data.discordUrl" *ngIf="data.discordUrl">前往</a>
-          </div>
-          <div>
-            QQ號 : <span *ngIf="data.qqNumber">{{ data.qqNumber }}</span>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <mat-chip-set
-            aria-label="Chihuahua traits"
-            *ngFor="let tag of data.tag"
-          >
-            <mat-chip class="me-2">{{ tag }}</mat-chip>
-          </mat-chip-set>
-          <button mat-button class="ms-auto">
-            產品列表<i class="bi bi-caret-right-fill"></i>
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-    <div class="row">
-      <div *ngFor="let typeTotal of typeTotal" class="row">
-        <mat-chip-option class="col mt-2">{{ typeTotal }}</mat-chip-option>
+        </div>
       </div>
     </div>
   </div>
