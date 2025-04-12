@@ -84,14 +84,17 @@
         <label>品牌總數 : {{ dataSize }} 筆</label>
         <div class="col-12 mt-2">
           <div *ngFor="let tag of typeTotal">
-            <mat-chip-option class="w-100 text-center" (click)="tagClick(tag)">
+            <mat-chip-option
+              class="w-100 text-center mt-2"
+              (click)="tagClick(tag)"
+            >
               {{ tag }}
             </mat-chip-option>
           </div>
 
           <div
             class="d-flex flex-column justify-content-center align-items-center"
-            style="margin-top: 300px"
+            style="margin-top: 180px"
           >
             <button
               class="btn arrowButton mb-2"

@@ -506,7 +506,7 @@ export const dataList = [
   {
     englishName: 'D-GLOW',
     chineseName: '',
-    img: '',
+    img: 'images/Dglow.png',
     products: '',
     tag: ['滑鼠墊', '防滑貼', '週邊'],
     webUrl: 'https://dglowgaming.com/',
@@ -791,7 +791,6 @@ export const dataList = [
     qqNumber: '',
     productsList: [],
   },
-
   {
     englishName: 'Lethal Gaming Gear',
     chineseName: '',
@@ -876,7 +875,6 @@ export const dataList = [
     qqNumber: '',
     productsList: [],
   },
-
   {
     englishName: 'Finalmouse',
     chineseName: '',
