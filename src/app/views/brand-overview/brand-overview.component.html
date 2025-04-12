@@ -1,124 +1,112 @@
 <div class="container">
-  <div class="d-flex justify-content-center align-items-center mt-3 mb-3">
-    <div class="col-6">
-      <div class="input-group">
-        <div class="input-group input-group-lg">
-          <span
-            class="input-group-text"
-            id="inputGroup-sizing-lg"
-            style="background: rgb(185, 184, 184)"
-          >
-            <i class="bi bi-search"></i
-          ></span>
-          <input
-            type="text"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-lg"
-            placeholder="請輸入品牌名稱"
-          />
+  <app-input-text
+    [(ngModel)]="searchInputValue"
+    (input)="filterContent()"
+  ></app-input-text>
+
+  <div class="row">
+    <div class="col-lg-10 col-md-9 col-sm-12">
+      <div class="row">
+        <div class="col-xl-4 col-md-6 col-sm-12 mb-4" *ngFor="let data of data">
+          <mat-card class="example-card h-100" appearance="outlined">
+            <mat-card-header>
+              <mat-card-title>{{ data.englishName }}</mat-card-title>
+              <mat-card-subtitle>{{ data.chineseName }}</mat-card-subtitle>
+            </mat-card-header>
+
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <img
+                [src]="data.img"
+                class="img-fluid"
+                style="max-width: 300px"
+              />
+            </div>
+
+            <mat-card-content class="mt-auto">
+              <div>
+                代表產品 :
+                <span *ngIf="data.products">{{ data.products }}</span>
+              </div>
+              <div>
+                官網 :
+                <a [href]="data.webUrl" *ngIf="data.webUrl" target="_blank"
+                  >前往</a
+                >
+              </div>
+              <div>
+                官方 Twitter :
+                <a
+                  [href]="data.twitterUrl"
+                  *ngIf="data.twitterUrl"
+                  target="_blank"
+                  >前往</a
+                >
+              </div>
+              <div>
+                官方 Discord :
+                <a
+                  [href]="data.discordUrl"
+                  *ngIf="data.discordUrl"
+                  target="_blank"
+                  >前往</a
+                >
+              </div>
+              <div>
+                QQ群 : <span *ngIf="data.qqNumber">{{ data.qqNumber }}</span>
+              </div>
+            </mat-card-content>
+
+            <mat-card-actions class="d-flex align-items-center">
+              <div
+                class="d-flex flex-wrap gap-2 overflow-y-auto chip-scroll-area"
+                aria-label="Tags"
+              >
+                <mat-chip *ngFor="let tag of data.tag" class="me-1">{{
+                  tag
+                }}</mat-chip>
+              </div>
+
+              <button
+                mat-button
+                class="ms-auto"
+                [disabled]="data.productsList.length <= 0"
+              >
+                產品列表<i class="bi bi-caret-right-fill"></i>
+              </button>
+            </mat-card-actions>
+          </mat-card>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="row justify-content-between align-items-center p-3">
-    <div class="d-flex">
-      <div>
-        <div class="row">
-          <div class="col-lg-10 col-md-8 col-sm-12">
-            <div class="row">
-              <div
-                class="col-xl-4 col-md-6 col-sm-12 mb-4"
-                *ngFor="let data of data"
-              >
-                <mat-card class="example-card h-100" appearance="outlined">
-                  <mat-card-header>
-                    <mat-card-title>{{ data.englishName }}</mat-card-title>
-                    <mat-card-subtitle>{{
-                      data.chineseName
-                    }}</mat-card-subtitle>
-                  </mat-card-header>
-                  <div
-                    class="d-flex justify-content-center align-items-center h-100"
-                  >
-                    <img
-                      [src]="data.img"
-                      class="img-fluid"
-                      style="max-width: 300px"
-                    />
-                  </div>
-                  <mat-card-content class="mt-auto">
-                    <div>
-                      代表產品 :
-                      <span *ngIf="data.products">{{ data.products }}</span>
-                    </div>
-                    <div>
-                      官網 :
-                      <a
-                        [href]="data.webUrl"
-                        *ngIf="data.webUrl"
-                        target="_blank"
-                        >前往</a
-                      >
-                    </div>
-                    <div>
-                      官方 Twitter :
-                      <a
-                        [href]="data.twitterUrl"
-                        *ngIf="data.twitterUrl"
-                        target="_blank"
-                        >前往</a
-                      >
-                    </div>
-                    <div>
-                      官方 Discord :
-                      <a
-                        [href]="data.discordUrl"
-                        *ngIf="data.discordUrl"
-                        target="_blank"
-                        >前往</a
-                      >
-                    </div>
-                    <div>
-                      QQ群 :
-                      <span *ngIf="data.qqNumber">{{ data.qqNumber }}</span>
-                    </div>
-                  </mat-card-content>
-                  <mat-card-actions class="d-flex align-items-center">
-                    <div
-                      class="d-flex flex-wrap gap-2 overflow-y-auto chip-scroll-area"
-                      aria-label="Tags"
-                    >
-                      <mat-chip *ngFor="let tag of data.tag" class="me-1">
-                        {{ tag }}
-                      </mat-chip>
-                    </div>
-
-                    <button
-                      mat-button
-                      class="ms-auto"
-                      [disabled]="data.productsList.length <= 0"
-                    >
-                      產品列表<i class="bi bi-caret-right-fill"></i>
-                    </button>
-                  </mat-card-actions>
-                </mat-card>
-              </div>
-            </div>
+    <div class="col-lg-2 col-md-3 col-sm-12">
+      <div class="sticky-sidebar">
+        <label>品牌總數 : {{ dataSize }} 筆</label>
+        <div class="col-12 mt-2">
+          <div *ngFor="let tag of typeTotal">
+            <mat-chip-option class="w-100 text-center" (click)="tagClick(tag)">
+              {{ tag }}
+            </mat-chip-option>
           </div>
 
-          <div class="col-lg-2 col-md-3 col-sm-12">
-            <div class="row">
-              <label> 品牌總數 : {{ dataSize }} 筆</label>
-              <div class="col-12 mt-2" *ngFor="let tag of typeTotal">
-                <mat-chip-option
-                  class="w-100 text-center"
-                  (click)="tagClick(tag)"
-                  >{{ tag }}</mat-chip-option
-                >
-              </div>
-            </div>
+          <div
+            class="d-flex flex-column justify-content-center align-items-center"
+            style="margin-top: 300px"
+          >
+            <button
+              class="btn arrowButton mb-2"
+              (click)="scrollToTop()"
+              style="width: 60px; background: transparent"
+            >
+              <i class="bi bi-arrow-bar-up" style="font-size: 35px"></i>
+            </button>
+            <button
+              class="btn"
+              (click)="scrollToBottom()"
+              style="width: 60px; background: transparent"
+            >
+              <i class="bi bi-arrow-bar-down" style="font-size: 35px"></i>
+            </button>
           </div>
         </div>
       </div>

@@ -5,6 +5,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { dataList } from './data/data';
 import { SortByNamePipePipe } from '../../pipes/sort-by-name-pipe.pipe';
+import { InputTextComponent } from '../../components/input-text/input-text.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-brand-overview',
@@ -13,13 +15,16 @@ import { SortByNamePipePipe } from '../../pipes/sort-by-name-pipe.pipe';
     CommonModule,
     MatCardModule,
     MatButtonModule,
-    SortByNamePipePipe,
+    InputTextComponent,
+    FormsModule,
   ],
   templateUrl: './brand-overview.component.html',
   styleUrl: './brand-overview.component.scss',
 })
 export class BrandOverviewComponent {
+  test: any;
   constructor() {}
+  searchInputValue: string = '';
   typeTotal: string[] = [
     '滑鼠',
     '鍵盤',
@@ -32,7 +37,8 @@ export class BrandOverviewComponent {
     '週邊',
   ];
 
-  data = dataList;
+  data: any = dataList;
+  filterData: any = dataList;
   tagList: string[] = [];
 
   ngOnInit() {}
@@ -50,6 +56,36 @@ export class BrandOverviewComponent {
       this.tagList.splice(index, 1);
     }
 
-    console.log(this.tagList);
+    if (this.tagList.length === 0) {
+      this.data = dataList;
+    } else {
+      this.data = dataList.filter((item: any) =>
+        item.tag.some((t: any) => this.tagList.includes(t))
+      );
+    }
+  }
+
+  filterContent() {
+    if (this.searchInputValue) {
+      this.data = this.filterData.filter(
+        (data: any) =>
+          data.englishName
+            .toLowerCase()
+            .includes(this.searchInputValue.toLowerCase()) ||
+          data.chineseName
+            .toLowerCase()
+            .includes(this.searchInputValue.toLowerCase())
+      );
+    } else {
+      this.data = dataList;
+    }
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  scrollToBottom(): void {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }
 }

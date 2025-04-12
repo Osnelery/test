@@ -8,12 +8,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { DriverViewDialogComponent } from './component/driver-view-dialog/driver-view-dialog.component';
-import {
-  DownLoadDataRes,
-  MouseDriverRes,
-  WebDriverDataRes,
-} from '../../types/mouseDriverView/res/mouseDriverViewRes';
+import { MouseDriverRes } from '../../types/mouseDriverView/res/mouseDriverViewRes';
 import { mouseDriverData } from '../../common/data';
+import { InputTextComponent } from '../../components/input-text/input-text.component';
 
 @Component({
   selector: 'app-mouse-driver-view',
@@ -25,6 +22,7 @@ import { mouseDriverData } from '../../common/data';
     MatFormFieldModule,
     MatIconModule,
     FormsModule,
+    InputTextComponent,
   ],
   templateUrl: './mouse-driver-view.component.html',
   styleUrl: './mouse-driver-view.component.scss',
