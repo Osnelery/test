@@ -1205,7 +1205,7 @@ export const dataList = [
   },
   {
     englishName: 'GravaStar',
-    chineseName: '',
+    chineseName: '重力星球',
     img: 'images/GravaStar.png',
     products: '',
     tag: [
