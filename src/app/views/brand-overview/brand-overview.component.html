@@ -50,7 +50,7 @@
                   </div>
                   <mat-card-content class="mt-auto">
                     <div>
-                      主打產品 :
+                      代表產品 :
                       <span *ngIf="data.products">{{ data.products }}</span>
                     </div>
                     <div>
@@ -81,7 +81,7 @@
                       >
                     </div>
                     <div>
-                      QQ號 :
+                      QQ群 :
                       <span *ngIf="data.qqNumber">{{ data.qqNumber }}</span>
                     </div>
                   </mat-card-content>
@@ -110,11 +110,13 @@
 
           <div class="col-lg-2 col-md-3 col-sm-12">
             <div class="row">
-              <label> 目前品牌總數 : {{allSize}} 筆</label>
-              <div class="col-12 mt-2" *ngFor="let typeTotal of typeTotal">
-                <mat-chip-option class="w-100 text-center">{{
-                  typeTotal
-                }}</mat-chip-option>
+              <label> 品牌總數 : {{ dataSize }} 筆</label>
+              <div class="col-12 mt-2" *ngFor="let tag of typeTotal">
+                <mat-chip-option
+                  class="w-100 text-center"
+                  (click)="tagClick(tag)"
+                  >{{ tag }}</mat-chip-option
+                >
               </div>
             </div>
           </div>
