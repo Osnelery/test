@@ -168,7 +168,7 @@ export const uniusWeb: WebDriverDataRes = {
   webKeyboardList: [],
 };
 export const vancerWeb: WebDriverDataRes = {
-  webDriverUrl: 'https://vcc.vaxee.co/',
+  webDriverUrl: 'https://www.vancer.gg/html/#/project/items',
   webMouseList: ['Vancer Thrash', 'Groove', 'AKITSU', 'GEMINI PRO'],
   webKeyboardList: [],
 };

@@ -20,7 +20,13 @@ export const latestNewsData = [
   {
     date: '2025/04/11',
     type: '修復',
-    title: '滑鼠驅動懶人包 搜尋修復',
+    title: '滑鼠驅動懶人包修復',
     text: '搜尋功能無法使用 已修復完畢',
+  }, 
+  {
+    date: '2025/04/13',
+    type: '修復',
+    title: '滑鼠驅動懶人包修復',
+    text: ' Vancer的網路驅動網址錯誤 已修復完畢',
   },
 ];
