@@ -11,6 +11,8 @@ import { DriverViewDialogComponent } from './component/driver-view-dialog/driver
 import { MouseDriverRes } from '../../types/mouseDriverView/res/mouseDriverViewRes';
 import { mouseDriverData } from '../../fakeData/data';
 import { InputTextComponent } from '../../components/input-text/input-text.component';
+import { forkJoin } from 'rxjs';
+import { MouseDriverService } from '../../services/mouse-driver.service';
 
 @Component({
   selector: 'app-mouse-driver-view',
@@ -28,11 +30,27 @@ import { InputTextComponent } from '../../components/input-text/input-text.compo
   styleUrl: './mouse-driver-view.component.scss',
 })
 export class MouseDriverViewComponent {
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private dialog: MatDialog,
+    private mouseDriverService: MouseDriverService
+  ) {}
+  /** 查詢框輸入 */
   inputValue: string = '';
-  driverBagData: MouseDriverRes[] = mouseDriverData;
-  driverBagFliterData: MouseDriverRes[] = mouseDriverData;
+  /** 滑鼠驅動資料 */
+  driverBagData: MouseDriverRes[] = [];
+  /** 滑鼠驅動篩選資料 */
+  driverBagFliterData: MouseDriverRes[] = [];
 
+  ngOnInit() {
+    forkJoin([this.mouseDriverService.getMouseDriverData()]).subscribe(
+      ([mouseData]) => {
+        this.driverBagData = mouseData;
+        this.driverBagFliterData = mouseData;
+      }
+    );
+  }
+
+  /** 打開詳細資料彈窗 */
   openDialog(row: MouseDriverRes) {
     const dialog = this.dialog.open(DriverViewDialogComponent, {
       minWidth: '800px',
@@ -41,6 +59,7 @@ export class MouseDriverViewComponent {
     dialog.componentInstance.detailsData = row;
   }
 
+  /** 搜尋功能 */
   filterContent() {
     if (this.inputValue) {
       this.driverBagData = this.driverBagFliterData.filter(
@@ -51,7 +70,16 @@ export class MouseDriverViewComponent {
           data.chineseName.toLowerCase().includes(this.inputValue.toLowerCase())
       );
     } else {
-      this.driverBagData = mouseDriverData;
+      this.getMouseDriverData();
     }
+  }
+
+  /** 取得滑鼠驅動懶人包資料 */
+  getMouseDriverData() {
+    this.mouseDriverService.getMouseDriverData().subscribe({
+      next: () => {
+        this.driverBagData = mouseDriverData;
+      },
+    });
   }
 }
