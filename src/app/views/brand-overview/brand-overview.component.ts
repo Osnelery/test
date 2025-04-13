@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     InputTextComponent,
     FormsModule,
-    SortByNamePipePipe
+    SortByNamePipePipe,
   ],
   templateUrl: './brand-overview.component.html',
   styleUrl: './brand-overview.component.scss',
@@ -26,15 +26,21 @@ export class BrandOverviewComponent {
   test: any;
   constructor() {}
   searchInputValue: string = '';
-  typeTotal: string[] = [
+  tagTotal: string[] = [
     '滑鼠',
     '鍵盤',
+    '客製化鍵盤',
     '滑鼠墊',
     '客製化滑鼠墊',
     '防滑貼',
+    '通用防滑貼',
+    '品牌專用防滑貼',
     '腳貼',
+    '通用腳貼',
+    '品牌專用腳貼',
     '改裝配件',
     '袖套',
+    '飄帶',
     '週邊',
   ];
 

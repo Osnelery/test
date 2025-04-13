@@ -7,7 +7,10 @@
   <div class="row">
     <div class="col-lg-10 col-md-9 col-sm-12">
       <div class="row">
-        <div class="col-xl-4 col-md-6 col-sm-12 mb-4" *ngFor="let data of data | sortByNamePipe : 'englishName'">
+        <div
+          class="col-xl-4 col-md-6 col-sm-12 mb-4"
+          *ngFor="let data of data | sortByNamePipe : 'englishName'"
+        >
           <mat-card class="example-card h-100" appearance="outlined">
             <mat-card-header>
               <mat-card-title>{{ data.englishName }}</mat-card-title>
@@ -81,15 +84,20 @@
 
     <div class="col-lg-2 col-md-3 col-sm-12">
       <div class="sticky-sidebar">
-        <label>品牌總數 : {{ dataSize }} 筆</label>
+        <div class="text-center">
+          <label>目前品牌總數 : {{ dataSize }} 筆</label>
+        </div>
+
         <div class="col-12 mt-2">
-          <div *ngFor="let tag of typeTotal">
-            <mat-chip-option
-              class="w-100 text-center mt-2"
-              (click)="tagClick(tag)"
-            >
-              {{ tag }}
-            </mat-chip-option>
+          <div class="tagBar">
+            <div *ngFor="let tag of tagTotal">
+              <mat-chip-option
+                class="w-100 text-center mt-2"
+                (click)="tagClick(tag)"
+              >
+                {{ tag }}
+              </mat-chip-option>
+            </div>
           </div>
 
           <div
