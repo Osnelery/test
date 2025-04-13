@@ -3,10 +3,13 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { dataList } from './data/data';
+import { dataList } from './data/brandData';
 import { SortByNamePipePipe } from '../../pipes/sort-by-name-pipe.pipe';
 import { InputTextComponent } from '../../components/input-text/input-text.component';
 import { FormsModule } from '@angular/forms';
+import { forkJoin } from 'rxjs';
+import { BrandOverviewService } from '../../services/brand-overview.service';
+import { DataListRes } from '../../types/brandOverView/brandOverViewRes';
 
 @Component({
   selector: 'app-brand-overview',
@@ -23,37 +26,35 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './brand-overview.component.scss',
 })
 export class BrandOverviewComponent {
-  test: any;
-  constructor() {}
+  constructor(private brandService: BrandOverviewService) {}
+  /** 查詢輸入框 */
   searchInputValue: string = '';
-  tagTotal: string[] = [
-    '滑鼠',
-    '鍵盤',
-    '客製化鍵盤',
-    '滑鼠墊',
-    '客製化滑鼠墊',
-    '防滑貼',
-    '通用防滑貼',
-    '品牌專用防滑貼',
-    '腳貼',
-    '通用腳貼',
-    '品牌專用腳貼',
-    '改裝配件',
-    '袖套',
-    '飄帶',
-    '週邊',
-  ];
-
-  data: any = dataList;
-  filterData: any = dataList;
+  /** 所有標籤 */
+  tagTotal: string[] = [];
+  /** 已選擇標籤 */
   tagList: string[] = [];
+  /** 品牌查詢資料 */
+  data: DataListRes[] = [];
+  /** 品牌查詢資料 */
+  filterData: DataListRes[] = [];
 
-  ngOnInit() {}
+  ngOnInit() {
+    forkJoin([
+      this.brandService.gettagTotal(),
+      this.brandService.getDataList(),
+    ]).subscribe(([tagTotal, dataList]) => {
+      this.tagTotal = tagTotal;
+      this.data = dataList;
+      this.filterData = dataList;
+    });
+  }
 
+  /** 取得總筆數 */
   get dataSize(): number {
     return this.data.length;
   }
 
+  /** 標籤點擊動作 */
   tagClick(tag: string): void {
     const index = this.tagList.indexOf(tag);
 
@@ -66,12 +67,13 @@ export class BrandOverviewComponent {
     if (this.tagList.length === 0) {
       this.data = dataList;
     } else {
-      this.data = dataList.filter((item: any) =>
+      this.data = dataList.filter((item) =>
         item.tag.some((t: any) => this.tagList.includes(t))
       );
     }
   }
 
+  /** 搜尋功能 */
   filterContent() {
     if (this.searchInputValue) {
       this.data = this.filterData.filter(
@@ -88,10 +90,12 @@ export class BrandOverviewComponent {
     }
   }
 
+  /** 至頂按鈕 */
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  /** 至底按鈕 */
   scrollToBottom(): void {
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }

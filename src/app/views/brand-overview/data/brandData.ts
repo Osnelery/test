@@ -1,4 +1,6 @@
-export const dataList = [
+import { DataListRes } from '../../../types/brandOverView/brandOverViewRes';
+
+export const dataList: DataListRes[] = [
   {
     englishName: 'Lamzu',
     chineseName: '蘭族',
