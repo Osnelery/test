@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { dataList } from './data/brandData';
+import { dataList } from '../../fakeData/brandData';
 import { SortByNamePipePipe } from '../../pipes/sort-by-name-pipe.pipe';
 import { InputTextComponent } from '../../components/input-text/input-text.component';
 import { FormsModule } from '@angular/forms';

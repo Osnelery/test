@@ -1,4 +1,4 @@
-import { DataListRes } from '../../../types/brandOverView/brandOverViewRes';
+import { DataListRes } from '../types/brandOverView/brandOverViewRes';
 
 export const dataList: DataListRes[] = [
   {

@@ -1,34 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { dataList } from '../views/brand-overview/data/brandData';
+import { dataList } from '../fakeData/brandData';
 import { DataListRes } from '../types/brandOverView/brandOverViewRes';
+import { tagTotal } from '../fakeData/tagTotalData';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BrandOverviewService {
   constructor() {}
-  tagTotal: string[] = [
-    '滑鼠',
-    '鍵盤',
-    '客製化鍵盤',
-    '滑鼠墊',
-    '客製化滑鼠墊',
-    '防滑貼',
-    '通用防滑貼',
-    '品牌專用防滑貼',
-    '腳貼',
-    '通用腳貼',
-    '品牌專用腳貼',
-    '改裝配件',
-    '袖套',
-    '飄帶',
-    '週邊',
-  ];
 
   /** 品牌查詢所有標籤 */
   public gettagTotal(): Observable<string[]> {
-    return of(this.tagTotal);
+    return of(tagTotal);
   }
 
   /** 品牌查詢資料 */

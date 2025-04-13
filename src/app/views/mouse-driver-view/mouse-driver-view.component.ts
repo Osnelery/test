@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { DriverViewDialogComponent } from './component/driver-view-dialog/driver-view-dialog.component';
 import { MouseDriverRes } from '../../types/mouseDriverView/res/mouseDriverViewRes';
-import { mouseDriverData } from '../../common/data';
+import { mouseDriverData } from '../../fakeData/data';
 import { InputTextComponent } from '../../components/input-text/input-text.component';
 
 @Component({
