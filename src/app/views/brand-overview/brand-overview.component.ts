@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     InputTextComponent,
     FormsModule,
+    SortByNamePipePipe
   ],
   templateUrl: './brand-overview.component.html',
   styleUrl: './brand-overview.component.scss',
