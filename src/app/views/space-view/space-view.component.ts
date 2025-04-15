@@ -8,10 +8,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { StatementDialogComponent } from './component/statement-dialog/statement-dialog.component';
 import { announcementData } from './model/announcementData';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-space-view',
-  imports: [CommonModule, SortByDatePipe, MatCardModule, MatTabsModule],
+  imports: [
+    CommonModule,
+    SortByDatePipe,
+    MatCardModule,
+    MatTabsModule,
+    FormsModule,
+  ],
   templateUrl: './space-view.component.html',
   styleUrl: './space-view.component.scss',
 })
@@ -24,6 +31,11 @@ export class SpaceViewComponent {
 
   latestNewsList: any = latestNewsData;
   announcementList: any = announcementData;
+  form = {
+    name: '',
+    email: '',
+    message: '',
+  };
 
   ngOnInit() {
     if (sessionStorage.getItem('statement') === null) {
