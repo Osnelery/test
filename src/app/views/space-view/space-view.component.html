@@ -85,16 +85,11 @@
     </div>
   </div>
 
-  <form name="contact" netlify>
-    <p>
-      <label>Name <input type="text" name="name" /></label>
-    </p>
-    <p>
-      <label>Email <input type="email" name="email" /></label>
-    </p>
-    <p>
-      <button type="submit">Send</button>
-    </p>
+  <form name="contact" method="POST" data-netlify="true">
+    <input type="text" name="name" placeholder="你的名字" required />
+    <input type="email" name="email" placeholder="你的 Email" required />
+    <textarea name="message" placeholder="留言內容"></textarea>
+    <button type="submit">送出</button>
   </form>
 
   <div class="container border border-2 mt-5 tabsCard">
