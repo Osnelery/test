@@ -25,37 +25,42 @@
               />
             </div>
 
-            <mat-card-content class="mt-auto">
+            <mat-card-content
+              class="mt-auto border-top border"
+              style="min-height: 130px; max-height: 130px; overflow-y: auto"
+            >
               <div>
-                代表產品 :
-                <span *ngIf="data.products">{{ data.products }}</span>
-              </div>
-              <div>
-                官網 :
-                <a [href]="data.webUrl" *ngIf="data.webUrl" target="_blank"
-                  >前往</a
-                >
-              </div>
-              <div>
-                官方 Twitter :
-                <a
-                  [href]="data.twitterUrl"
-                  *ngIf="data.twitterUrl"
-                  target="_blank"
-                  >前往</a
-                >
-              </div>
-              <div>
-                官方 Discord :
-                <a
-                  [href]="data.discordUrl"
-                  *ngIf="data.discordUrl"
-                  target="_blank"
-                  >前往</a
-                >
-              </div>
-              <div>
-                QQ群 : <span *ngIf="data.qqNumber">{{ data.qqNumber }}</span>
+                <div class="mt-1">
+                  代表產品 :
+                  <span *ngIf="data.products">{{ data.products }}</span>
+                </div>
+                <div>
+                  官網 :
+                  <a [href]="data.webUrl" *ngIf="data.webUrl" target="_blank"
+                    >前往</a
+                  >
+                </div>
+                <div>
+                  官方 Twitter :
+                  <a
+                    [href]="data.twitterUrl"
+                    *ngIf="data.twitterUrl"
+                    target="_blank"
+                    >前往</a
+                  >
+                </div>
+                <div>
+                  官方 Discord :
+                  <a
+                    [href]="data.discordUrl"
+                    *ngIf="data.discordUrl"
+                    target="_blank"
+                    >前往</a
+                  >
+                </div>
+                <div>
+                  QQ群 : <span *ngIf="data.qqNumber">{{ data.qqNumber }}</span>
+                </div>
               </div>
             </mat-card-content>
 
