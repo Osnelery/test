@@ -31,11 +31,6 @@ export class SpaceViewComponent {
 
   latestNewsList: any = latestNewsData;
   announcementList: any = announcementData;
-  form = {
-    name: '',
-    email: '',
-    message: '',
-  };
 
   ngOnInit() {
     if (sessionStorage.getItem('statement') === null) {

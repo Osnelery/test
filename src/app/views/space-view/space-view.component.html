@@ -85,52 +85,6 @@
     </div>
   </div>
 
- <!-- 隱藏 Netlify 用的純 HTML 表單，讓 Netlify 可以解析 -->
-<form name="contact" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="name" />
-  <input type="email" name="email" />
-  <textarea name="message"></textarea>
-</form>
-
-<!-- 隱藏表單，讓 Netlify 在 build 時可以抓到 -->
-<form name="contact" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="name" />
-  <input type="email" name="email" />
-  <textarea name="message"></textarea>
-</form>
-
-<!-- Angular 控制的實際表單 -->
-<form
-  ngNoForm
-  name="contact"
-  method="POST"
-  netlify
-  netlify-honeypot="bot-field"
- 
->
-  <input type="hidden" name="form-name" value="contact" />
-  <p style="display:none">
-    <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-  </p>
-
-  <label>
-    名字：
-    <input type="text" name="name" [(ngModel)]="form.name" required />
-  </label>
-
-  <label>
-    Email：
-    <input type="email" name="email" [(ngModel)]="form.email" required />
-  </label>
-
-  <label>
-    留言：
-    <textarea name="message" [(ngModel)]="form.message"></textarea>
-  </label>
-
-  <button type="submit">送出</button>
-</form>
-
 
   <div class="container border border-2 mt-5 tabsCard">
     <div class="row">
