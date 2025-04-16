@@ -23,26 +23,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './space-view.component.scss',
 })
 export class SpaceViewComponent {
-  constructor(private dialog: MatDialog) {
-    window.onbeforeunload = () => {
-      sessionStorage.clear();
-    };
-  }
+  constructor(private dialog: MatDialog) {}
 
   latestNewsList: any = latestNewsData;
   announcementList: any = announcementData;
 
-  ngOnInit() {
-    if (sessionStorage.getItem('statement') === null) {
-      sessionStorage.setItem('statement', 'false');
-    }
-
-    if (sessionStorage.getItem('statement') === 'false') {
-      this.openStatementDialog();
-    } else {
-      return;
-    }
-  }
+  ngOnInit() {}
 
   openDialog(data: any) {
     const dialog = this.dialog.open(LatestNewsDialogComponent, {
@@ -50,13 +36,5 @@ export class SpaceViewComponent {
       height: '300px',
     });
     dialog.componentInstance.data = data;
-  }
-
-  openStatementDialog() {
-    this.dialog.open(StatementDialogComponent, {
-      minWidth: '500px',
-      height: '280px',
-    });
-    sessionStorage.setItem('statement', 'true');
   }
 }
