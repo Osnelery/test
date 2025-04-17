@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 import { BrandOverviewService } from '../../services/brand-overview.service';
 import { DataListRes } from '../../types/brandOverView/brandOverViewRes';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-brand-overview',
@@ -21,6 +23,8 @@ import { DataListRes } from '../../types/brandOverView/brandOverViewRes';
     InputTextComponent,
     FormsModule,
     SortByNamePipePipe,
+    MatExpansionModule,
+    MatIconModule,
   ],
   templateUrl: './brand-overview.component.html',
   styleUrl: './brand-overview.component.scss',
@@ -30,7 +34,7 @@ export class BrandOverviewComponent {
   /** 查詢輸入框 */
   searchInputValue: string = '';
   /** 所有標籤 */
-  tagTotal: string[] = [];
+  tagTotal: any[] = [];
   /** 已選擇標籤 */
   tagList: string[] = [];
   /** 品牌查詢資料 */
@@ -55,19 +59,22 @@ export class BrandOverviewComponent {
   }
 
   /** 標籤點擊動作 */
-  tagClick(tag: string): void {
+  tagClick(tag: string) {
     const index = this.tagList.indexOf(tag);
-
     if (index === -1) {
       this.tagList.push(tag);
     } else {
       this.tagList.splice(index, 1);
     }
 
+    this.filterDataByTags();
+  }
+
+  filterDataByTags() {
     if (this.tagList.length === 0) {
-      this.data = dataList;
+      this.data = this.filterData;
     } else {
-      this.data = dataList.filter((item) =>
+      this.data = this.filterData.filter((item) =>
         item.tag.some((t: any) => this.tagList.includes(t))
       );
     }
@@ -90,13 +97,27 @@ export class BrandOverviewComponent {
     }
   }
 
+  clearTag() {
+    this.tagList = [];
+    this.searchInputValue = '';
+    this.filterDataByTags();
+  }
+
+  cancelTag(text: string) {
+    const index = this.tagList.indexOf(text);
+    if (index >= 0) {
+      this.tagList.splice(index, 1);
+    }
+    this.filterDataByTags();
+  }
+
   /** 至頂按鈕 */
-  scrollToTop(): void {
+  scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   /** 至底按鈕 */
-  scrollToBottom(): void {
+  scrollToBottom() {
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }
 }

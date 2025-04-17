@@ -5,7 +5,7 @@
   ></app-input-text>
 
   <div class="row">
-    <div class="col-lg-10 col-md-9 col-sm-12">
+    <div class="col-lg-9 col-md-9 col-sm-12">
       <div class="row">
         <div
           class="col-xl-4 col-md-6 col-sm-12 mb-4"
@@ -87,27 +87,71 @@
       </div>
     </div>
 
-    <div class="col-lg-2 col-md-3 col-sm-12">
+    <div class="col" style="flex: 0 0 20%; max-width: 20%">
       <div class="sticky-sidebar">
-        <div class="text-center">
-          <label>目前品牌總數 : {{ dataSize }} 筆</label>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span>目前品牌總數 : {{ dataSize }} 筆</span>
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm col-4"
+            (click)="clearTag()"
+          >
+            清空條件
+          </button>
         </div>
 
-        <div class="col-12 mt-2">
+        <mat-chip-grid #chipGrid aria-label="已選標籤" class="chip-scroll-wrap">
+          <div
+            *ngIf="tagList.length <= 0"
+            class="d-flex justify-content-center align-items-center w-100"
+          >
+            <label class="form-label text-secondary fw-semibold">
+              無標籤條件
+            </label>
+          </div>
+
+          <mat-chip-row
+            *ngFor="let text of tagList"
+            [removable]="true"
+            class="custom-chip"
+          >
+            {{ text }}
+            <button
+              matChipRemove
+              class="remove-btn"
+              aria-label="移除"
+              (click)="cancelTag(text)"
+            >
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        </mat-chip-grid>
+
+        <div class="mt-2">
           <div class="tagBar">
-            <div *ngFor="let tag of tagTotal">
-              <mat-chip-option
-                class="w-100 text-center mt-2"
-                (click)="tagClick(tag)"
-              >
-                {{ tag }}
-              </mat-chip-option>
+            <div class="mb-2" *ngFor="let tag of tagTotal">
+              <mat-expansion-panel class="custom-expansion-panel">
+                <mat-expansion-panel-header>
+                  <span class="text-black">{{ tag.type }}</span>
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+                  <mat-chip-option
+                    class="custom-chip-option w-100 text-center mb-2"
+                    (click)="tagClick(name)"
+                    [selected]="tagList.includes(name)"
+                    *ngFor="let name of tag.name"
+                  >
+                    {{ name }}
+                  </mat-chip-option>
+                </ng-template>
+              </mat-expansion-panel>
             </div>
           </div>
 
           <div
             class="d-flex flex-column justify-content-center align-items-center"
-            style="margin-top: 180px"
+            style="margin-top: 50px"
           >
             <button
               class="btn arrowButton mb-2"
