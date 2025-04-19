@@ -1,7 +1,7 @@
 <mat-toolbar>
-  <img src="logo.png" class="logo" (click)="navigateTo('')" />
-  <span class="ms-3"> OSgearWeb</span>
-
+  <div class="d-flex align-items-center">
+    <h3 class="osgear-logo" (click)="navigateTo('')">OS<span>gearWeb</span></h3>
+  </div>
   <div class="ms-auto d-flex align-items-center justify-content-center">
     <div class="me-3" *ngFor="let routerPath of routers">
       <button

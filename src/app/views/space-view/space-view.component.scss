@@ -28,7 +28,7 @@
 }
 
 .lastestNew {
-  height: 480px;
+  height: 500px;
   overflow-y: auto;
 }
 
@@ -41,21 +41,30 @@
 }
 
 .lastestNew::-webkit-scrollbar-thumb {
-  background-color: rgb(189, 185, 185); /* 主色 */
+  background-color: rgb(104, 103, 103); /* 主色 */
   border-radius: 6px;
-  border: 2px solid rgb(189, 185, 185); /* 內距感 */
+  border: 2px solid rgb(104, 103, 103); /* 內距感 */
 }
 
 .lastestNew::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(189, 185, 185);
+  background-color: rgb(104, 103, 103);
 }
 
 .news-card {
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+    border-color 0.2s;
 }
 
 .news-card:hover {
   transform: scale(1.02);
   box-shadow: 0 0.5rem 1rem rgba(137, 233, 202, 0.4);
   border-top-color: #69dab5 !important;
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; // 顯示 2 行
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

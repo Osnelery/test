@@ -1,11 +1,60 @@
-.text {
-  max-height: 150px;
-  min-height: 150px;
+.announcement-dialog {
+  background: #f5f3fc; // 淡紫背景
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(102, 51, 153, 0.1);
+  margin: 0 auto;
+}
+
+.announcement-title {
+  font-size: 1.75rem;
+  color: #5d4b8a; // 深一點的紫色，文字顯眼
+  font-weight: bold;
+}
+
+.announcement-text-container {
+  padding: 1rem;
+  background-color: #eae4f8; // 比主色淺一點作為文字區塊底色
+  border-radius: 0.5rem;
+  border: 1px dashed rgb(104, 103, 103);
+  height: 150px;
   overflow-y: auto;
 }
 
-.textDiv {
-  word-break: break-all;
-  font-size: 18px;
-  text-align: left;
+.announcement-text {
+  color: #6a5f87;
+  font-size: 1.1rem;
+  word-break: break-word;
+}
+
+.announcement-text-container {
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(104, 103, 103) #f3efff;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f3efff;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(104, 103, 103);
+    border-radius: 4px;
+    border: 2px solid #f3efff;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #a998d1;
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+    width: 0;
+  }
 }
