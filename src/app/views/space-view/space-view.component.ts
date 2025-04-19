@@ -7,7 +7,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { StatementDialogComponent } from './component/statement-dialog/statement-dialog.component';
-import { announcementData } from './model/announcementData';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -26,7 +25,6 @@ export class SpaceViewComponent {
   constructor(private dialog: MatDialog) {}
 
   latestNewsList: any = latestNewsData;
-  announcementList: any = announcementData;
 
   ngOnInit() {}
 

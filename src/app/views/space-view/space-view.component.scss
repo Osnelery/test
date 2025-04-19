@@ -3,10 +3,6 @@
   overflow-y: none;
 }
 
-mat-card {
-  min-height: 500px;
-}
-
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
   filter: invert(100%);
@@ -31,32 +27,35 @@ mat-card {
   padding-top: 10px;
 }
 
-.mat-tab {
-  min-height: 500px;
+.lastestNew {
+  height: 480px;
+  overflow-y: auto;
 }
 
-.mat-tab-label {
-  font-size: 55px !important;
-  font-weight: bold !important;
+.lastestNew::-webkit-scrollbar {
+  width: 10px;
 }
 
-.tabsCard {
-  min-height: 600px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+.lastestNew::-webkit-scrollbar-track {
+  border-radius: 6px;
 }
 
-.nav-tabs {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+.lastestNew::-webkit-scrollbar-thumb {
+  background-color: rgb(189, 185, 185); /* 主色 */
+  border-radius: 6px;
+  border: 2px solid rgb(189, 185, 185); /* 內距感 */
 }
 
-.nav-tabs .nav-item:first-child .nav-link {
-  border-top-left-radius: 20px;
+.lastestNew::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(189, 185, 185);
 }
 
-.nav-tabs .nav-link {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+.news-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s;
 }
 
+.news-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0.5rem 1rem rgba(137, 233, 202, 0.4);
+  border-top-color: #69dab5 !important;
+}
